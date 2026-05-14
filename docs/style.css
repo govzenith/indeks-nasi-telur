@@ -501,11 +501,11 @@ body {
 }
 
 .footer-quote p {
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-weight: 600;
     color: var(--white);
     letter-spacing: -0.3px;
-    white-space: nowrap;
+    line-height: 1.5;
 }
 
 
@@ -522,7 +522,7 @@ body {
     .dashboard-visuals {
         grid-template-columns: 1fr;
     }
-    .cards-grid, .data-cards, .story-box {
+    .cards-grid, .data-cards, .story-box, .indomie-insight-row {
         grid-template-columns: 1fr;
         flex-direction: column;
         text-align: center;

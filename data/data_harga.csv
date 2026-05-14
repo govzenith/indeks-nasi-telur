@@ -1,0 +1,991 @@
+tanggal,provinsi,komoditas,harga,varian_pihps
+2026-04-14,DKI Jakarta,Bawang Merah,48150.0,Bawang Merah Ukuran Sedang
+2026-04-14,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-14,DKI Jakarta,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-04-14,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-14,DKI Jakarta,Telur Ayam,29500.0,Telur Ayam Ras Segar
+2026-04-14,Jawa Tengah,Bawang Merah,40000.0,Bawang Merah Ukuran Sedang
+2026-04-14,Jawa Tengah,Beras,15750.0,Beras Kualitas Medium I
+2026-04-14,Jawa Tengah,Cabai Merah,37400.0,Cabai Merah Keriting
+2026-04-14,Jawa Tengah,Minyak Goreng,21250.0,Minyak Goreng Curah
+2026-04-14,Jawa Tengah,Telur Ayam,27600.0,Telur Ayam Ras Segar
+2026-04-14,Kalimantan Barat,Bawang Merah,38550.0,Bawang Merah Ukuran Sedang
+2026-04-14,Kalimantan Barat,Beras,17050.0,Beras Kualitas Medium I
+2026-04-14,Kalimantan Barat,Cabai Merah,74400.0,Cabai Merah Keriting
+2026-04-14,Kalimantan Barat,Minyak Goreng,19150.0,Minyak Goreng Curah
+2026-04-14,Kalimantan Barat,Telur Ayam,34550.0,Telur Ayam Ras Segar
+2026-04-14,Kalimantan Timur,Bawang Merah,51650.0,Bawang Merah Ukuran Sedang
+2026-04-14,Kalimantan Timur,Beras,16900.0,Beras Kualitas Medium I
+2026-04-14,Kalimantan Timur,Cabai Merah,47100.0,Cabai Merah Keriting
+2026-04-14,Kalimantan Timur,Minyak Goreng,20000.0,Minyak Goreng Curah
+2026-04-14,Kalimantan Timur,Telur Ayam,32050.0,Telur Ayam Ras Segar
+2026-04-14,Papua,Bawang Merah,70900.0,Bawang Merah Ukuran Sedang
+2026-04-14,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-14,Papua,Cabai Merah,56500.0,Cabai Merah Keriting
+2026-04-14,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-14,Papua,Telur Ayam,41050.0,Telur Ayam Ras Segar
+2026-04-14,Riau,Bawang Merah,39000.0,Bawang Merah Ukuran Sedang
+2026-04-14,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-14,Riau,Cabai Merah,36400.0,Cabai Merah Keriting
+2026-04-14,Riau,Minyak Goreng,20100.0,Minyak Goreng Curah
+2026-04-14,Riau,Telur Ayam,31250.0,Telur Ayam Ras Segar
+2026-04-14,Sulawesi Selatan,Bawang Merah,43900.0,Bawang Merah Ukuran Sedang
+2026-04-14,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-14,Sulawesi Selatan,Cabai Merah,31750.0,Cabai Merah Keriting
+2026-04-14,Sulawesi Selatan,Minyak Goreng,18400.0,Minyak Goreng Curah
+2026-04-14,Sulawesi Selatan,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-14,Sulawesi Utara,Bawang Merah,52000.0,Bawang Merah Ukuran Sedang
+2026-04-14,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-04-14,Sulawesi Utara,Cabai Merah,34400.0,Cabai Merah Keriting
+2026-04-14,Sulawesi Utara,Minyak Goreng,17100.0,Minyak Goreng Curah
+2026-04-14,Sulawesi Utara,Telur Ayam,33800.0,Telur Ayam Ras Segar
+2026-04-14,Sumatera Utara,Bawang Merah,39800.0,Bawang Merah Ukuran Sedang
+2026-04-14,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-14,Sumatera Utara,Cabai Merah,22200.0,Cabai Merah Keriting
+2026-04-14,Sumatera Utara,Minyak Goreng,20950.0,Minyak Goreng Curah
+2026-04-14,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-15,DKI Jakarta,Bawang Merah,48150.0,Bawang Merah Ukuran Sedang
+2026-04-15,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-15,DKI Jakarta,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-04-15,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-15,DKI Jakarta,Telur Ayam,29700.0,Telur Ayam Ras Segar
+2026-04-15,Jawa Tengah,Bawang Merah,39200.0,Bawang Merah Ukuran Sedang
+2026-04-15,Jawa Tengah,Beras,15750.0,Beras Kualitas Medium I
+2026-04-15,Jawa Tengah,Cabai Merah,38900.0,Cabai Merah Keriting
+2026-04-15,Jawa Tengah,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-15,Jawa Tengah,Telur Ayam,27600.0,Telur Ayam Ras Segar
+2026-04-15,Kalimantan Barat,Bawang Merah,39700.0,Bawang Merah Ukuran Sedang
+2026-04-15,Kalimantan Barat,Beras,17050.0,Beras Kualitas Medium I
+2026-04-15,Kalimantan Barat,Cabai Merah,73750.0,Cabai Merah Keriting
+2026-04-15,Kalimantan Barat,Minyak Goreng,19150.0,Minyak Goreng Curah
+2026-04-15,Kalimantan Barat,Telur Ayam,34300.0,Telur Ayam Ras Segar
+2026-04-15,Kalimantan Timur,Bawang Merah,51250.0,Bawang Merah Ukuran Sedang
+2026-04-15,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-15,Kalimantan Timur,Cabai Merah,48350.0,Cabai Merah Keriting
+2026-04-15,Kalimantan Timur,Minyak Goreng,20100.0,Minyak Goreng Curah
+2026-04-15,Kalimantan Timur,Telur Ayam,32000.0,Telur Ayam Ras Segar
+2026-04-15,Papua,Bawang Merah,70900.0,Bawang Merah Ukuran Sedang
+2026-04-15,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-15,Papua,Cabai Merah,56000.0,Cabai Merah Keriting
+2026-04-15,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-15,Papua,Telur Ayam,41300.0,Telur Ayam Ras Segar
+2026-04-15,Riau,Bawang Merah,38850.0,Bawang Merah Ukuran Sedang
+2026-04-15,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-15,Riau,Cabai Merah,35650.0,Cabai Merah Keriting
+2026-04-15,Riau,Minyak Goreng,19950.0,Minyak Goreng Curah
+2026-04-15,Riau,Telur Ayam,31150.0,Telur Ayam Ras Segar
+2026-04-15,Sulawesi Selatan,Bawang Merah,43400.0,Bawang Merah Ukuran Sedang
+2026-04-15,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-15,Sulawesi Selatan,Cabai Merah,32500.0,Cabai Merah Keriting
+2026-04-15,Sulawesi Selatan,Minyak Goreng,18400.0,Minyak Goreng Curah
+2026-04-15,Sulawesi Selatan,Telur Ayam,30650.0,Telur Ayam Ras Segar
+2026-04-15,Sulawesi Utara,Bawang Merah,50500.0,Bawang Merah Ukuran Sedang
+2026-04-15,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-04-15,Sulawesi Utara,Cabai Merah,34400.0,Cabai Merah Keriting
+2026-04-15,Sulawesi Utara,Minyak Goreng,17200.0,Minyak Goreng Curah
+2026-04-15,Sulawesi Utara,Telur Ayam,33650.0,Telur Ayam Ras Segar
+2026-04-15,Sumatera Utara,Bawang Merah,40150.0,Bawang Merah Ukuran Sedang
+2026-04-15,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-15,Sumatera Utara,Cabai Merah,20450.0,Cabai Merah Keriting
+2026-04-15,Sumatera Utara,Minyak Goreng,20900.0,Minyak Goreng Curah
+2026-04-15,Sumatera Utara,Telur Ayam,32500.0,Telur Ayam Ras Segar
+2026-04-16,DKI Jakarta,Bawang Merah,47300.0,Bawang Merah Ukuran Sedang
+2026-04-16,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-16,DKI Jakarta,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-04-16,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-16,DKI Jakarta,Telur Ayam,29500.0,Telur Ayam Ras Segar
+2026-04-16,Jawa Tengah,Bawang Merah,38850.0,Bawang Merah Ukuran Sedang
+2026-04-16,Jawa Tengah,Beras,15750.0,Beras Kualitas Medium I
+2026-04-16,Jawa Tengah,Cabai Merah,41050.0,Cabai Merah Keriting
+2026-04-16,Jawa Tengah,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-16,Jawa Tengah,Telur Ayam,27500.0,Telur Ayam Ras Segar
+2026-04-16,Kalimantan Barat,Bawang Merah,40650.0,Bawang Merah Ukuran Sedang
+2026-04-16,Kalimantan Barat,Beras,17100.0,Beras Kualitas Medium I
+2026-04-16,Kalimantan Barat,Cabai Merah,70650.0,Cabai Merah Keriting
+2026-04-16,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-04-16,Kalimantan Barat,Telur Ayam,34300.0,Telur Ayam Ras Segar
+2026-04-16,Kalimantan Timur,Bawang Merah,50400.0,Bawang Merah Ukuran Sedang
+2026-04-16,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-16,Kalimantan Timur,Cabai Merah,47500.0,Cabai Merah Keriting
+2026-04-16,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-16,Kalimantan Timur,Telur Ayam,32050.0,Telur Ayam Ras Segar
+2026-04-16,Papua,Bawang Merah,70750.0,Bawang Merah Ukuran Sedang
+2026-04-16,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-16,Papua,Cabai Merah,54500.0,Cabai Merah Keriting
+2026-04-16,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-16,Papua,Telur Ayam,41300.0,Telur Ayam Ras Segar
+2026-04-16,Riau,Bawang Merah,38100.0,Bawang Merah Ukuran Sedang
+2026-04-16,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-16,Riau,Cabai Merah,34800.0,Cabai Merah Keriting
+2026-04-16,Riau,Minyak Goreng,19950.0,Minyak Goreng Curah
+2026-04-16,Riau,Telur Ayam,31150.0,Telur Ayam Ras Segar
+2026-04-16,Sulawesi Selatan,Bawang Merah,43400.0,Bawang Merah Ukuran Sedang
+2026-04-16,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-16,Sulawesi Selatan,Cabai Merah,32750.0,Cabai Merah Keriting
+2026-04-16,Sulawesi Selatan,Minyak Goreng,18400.0,Minyak Goreng Curah
+2026-04-16,Sulawesi Selatan,Telur Ayam,30650.0,Telur Ayam Ras Segar
+2026-04-16,Sulawesi Utara,Bawang Merah,50250.0,Bawang Merah Ukuran Sedang
+2026-04-16,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-04-16,Sulawesi Utara,Cabai Merah,35650.0,Cabai Merah Keriting
+2026-04-16,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-04-16,Sulawesi Utara,Telur Ayam,33650.0,Telur Ayam Ras Segar
+2026-04-16,Sumatera Utara,Bawang Merah,40850.0,Bawang Merah Ukuran Sedang
+2026-04-16,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-16,Sumatera Utara,Cabai Merah,20950.0,Cabai Merah Keriting
+2026-04-16,Sumatera Utara,Minyak Goreng,21050.0,Minyak Goreng Curah
+2026-04-16,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-17,DKI Jakarta,Bawang Merah,47300.0,Bawang Merah Ukuran Sedang
+2026-04-17,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-17,DKI Jakarta,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-04-17,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-17,DKI Jakarta,Telur Ayam,29500.0,Telur Ayam Ras Segar
+2026-04-17,Jawa Tengah,Bawang Merah,39200.0,Bawang Merah Ukuran Sedang
+2026-04-17,Jawa Tengah,Beras,15750.0,Beras Kualitas Medium I
+2026-04-17,Jawa Tengah,Cabai Merah,42800.0,Cabai Merah Keriting
+2026-04-17,Jawa Tengah,Minyak Goreng,21350.0,Minyak Goreng Curah
+2026-04-17,Jawa Tengah,Telur Ayam,27350.0,Telur Ayam Ras Segar
+2026-04-17,Kalimantan Barat,Bawang Merah,42200.0,Bawang Merah Ukuran Sedang
+2026-04-17,Kalimantan Barat,Beras,17100.0,Beras Kualitas Medium I
+2026-04-17,Kalimantan Barat,Cabai Merah,66900.0,Cabai Merah Keriting
+2026-04-17,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-04-17,Kalimantan Barat,Telur Ayam,34100.0,Telur Ayam Ras Segar
+2026-04-17,Kalimantan Timur,Bawang Merah,49850.0,Bawang Merah Ukuran Sedang
+2026-04-17,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-17,Kalimantan Timur,Cabai Merah,47900.0,Cabai Merah Keriting
+2026-04-17,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-17,Kalimantan Timur,Telur Ayam,32050.0,Telur Ayam Ras Segar
+2026-04-17,Papua,Bawang Merah,70650.0,Bawang Merah Ukuran Sedang
+2026-04-17,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-17,Papua,Cabai Merah,56400.0,Cabai Merah Keriting
+2026-04-17,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-17,Papua,Telur Ayam,41300.0,Telur Ayam Ras Segar
+2026-04-17,Riau,Bawang Merah,38650.0,Bawang Merah Ukuran Sedang
+2026-04-17,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-17,Riau,Cabai Merah,35650.0,Cabai Merah Keriting
+2026-04-17,Riau,Minyak Goreng,19950.0,Minyak Goreng Curah
+2026-04-17,Riau,Telur Ayam,31150.0,Telur Ayam Ras Segar
+2026-04-17,Sulawesi Selatan,Bawang Merah,43400.0,Bawang Merah Ukuran Sedang
+2026-04-17,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-17,Sulawesi Selatan,Cabai Merah,32000.0,Cabai Merah Keriting
+2026-04-17,Sulawesi Selatan,Minyak Goreng,18400.0,Minyak Goreng Curah
+2026-04-17,Sulawesi Selatan,Telur Ayam,30600.0,Telur Ayam Ras Segar
+2026-04-17,Sulawesi Utara,Bawang Merah,49400.0,Bawang Merah Ukuran Sedang
+2026-04-17,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-04-17,Sulawesi Utara,Cabai Merah,35000.0,Cabai Merah Keriting
+2026-04-17,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-17,Sulawesi Utara,Telur Ayam,33650.0,Telur Ayam Ras Segar
+2026-04-17,Sumatera Utara,Bawang Merah,39500.0,Bawang Merah Ukuran Sedang
+2026-04-17,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-17,Sumatera Utara,Cabai Merah,21200.0,Cabai Merah Keriting
+2026-04-17,Sumatera Utara,Minyak Goreng,21050.0,Minyak Goreng Curah
+2026-04-17,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-20,DKI Jakarta,Bawang Merah,49800.0,Bawang Merah Ukuran Sedang
+2026-04-20,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-20,DKI Jakarta,Cabai Merah,49550.0,Cabai Merah Keriting
+2026-04-20,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-20,DKI Jakarta,Telur Ayam,29700.0,Telur Ayam Ras Segar
+2026-04-20,Jawa Tengah,Bawang Merah,39400.0,Bawang Merah Ukuran Sedang
+2026-04-20,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-20,Jawa Tengah,Cabai Merah,41450.0,Cabai Merah Keriting
+2026-04-20,Jawa Tengah,Minyak Goreng,21350.0,Minyak Goreng Curah
+2026-04-20,Jawa Tengah,Telur Ayam,27250.0,Telur Ayam Ras Segar
+2026-04-20,Kalimantan Barat,Bawang Merah,45100.0,Bawang Merah Ukuran Sedang
+2026-04-20,Kalimantan Barat,Beras,17150.0,Beras Kualitas Medium I
+2026-04-20,Kalimantan Barat,Cabai Merah,67500.0,Cabai Merah Keriting
+2026-04-20,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-04-20,Kalimantan Barat,Telur Ayam,33300.0,Telur Ayam Ras Segar
+2026-04-20,Kalimantan Timur,Bawang Merah,49850.0,Bawang Merah Ukuran Sedang
+2026-04-20,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-20,Kalimantan Timur,Cabai Merah,47900.0,Cabai Merah Keriting
+2026-04-20,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-20,Kalimantan Timur,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-04-20,Papua,Bawang Merah,71650.0,Bawang Merah Ukuran Sedang
+2026-04-20,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-20,Papua,Cabai Merah,59000.0,Cabai Merah Keriting
+2026-04-20,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-20,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-20,Riau,Bawang Merah,39550.0,Bawang Merah Ukuran Sedang
+2026-04-20,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-20,Riau,Cabai Merah,41350.0,Cabai Merah Keriting
+2026-04-20,Riau,Minyak Goreng,19950.0,Minyak Goreng Curah
+2026-04-20,Riau,Telur Ayam,31100.0,Telur Ayam Ras Segar
+2026-04-20,Sulawesi Selatan,Bawang Merah,41650.0,Bawang Merah Ukuran Sedang
+2026-04-20,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-20,Sulawesi Selatan,Cabai Merah,32150.0,Cabai Merah Keriting
+2026-04-20,Sulawesi Selatan,Minyak Goreng,18450.0,Minyak Goreng Curah
+2026-04-20,Sulawesi Selatan,Telur Ayam,28950.0,Telur Ayam Ras Segar
+2026-04-20,Sulawesi Utara,Bawang Merah,50000.0,Bawang Merah Ukuran Sedang
+2026-04-20,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-20,Sulawesi Utara,Cabai Merah,34400.0,Cabai Merah Keriting
+2026-04-20,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-20,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-20,Sumatera Utara,Bawang Merah,39600.0,Bawang Merah Ukuran Sedang
+2026-04-20,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-20,Sumatera Utara,Cabai Merah,26650.0,Cabai Merah Keriting
+2026-04-20,Sumatera Utara,Minyak Goreng,21100.0,Minyak Goreng Curah
+2026-04-20,Sumatera Utara,Telur Ayam,32650.0,Telur Ayam Ras Segar
+2026-04-21,DKI Jakarta,Bawang Merah,49800.0,Bawang Merah Ukuran Sedang
+2026-04-21,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-21,DKI Jakarta,Cabai Merah,49550.0,Cabai Merah Keriting
+2026-04-21,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-21,DKI Jakarta,Telur Ayam,29700.0,Telur Ayam Ras Segar
+2026-04-21,Jawa Tengah,Bawang Merah,39750.0,Bawang Merah Ukuran Sedang
+2026-04-21,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-21,Jawa Tengah,Cabai Merah,42250.0,Cabai Merah Keriting
+2026-04-21,Jawa Tengah,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-21,Jawa Tengah,Telur Ayam,27100.0,Telur Ayam Ras Segar
+2026-04-21,Kalimantan Barat,Bawang Merah,47350.0,Bawang Merah Ukuran Sedang
+2026-04-21,Kalimantan Barat,Beras,17200.0,Beras Kualitas Medium I
+2026-04-21,Kalimantan Barat,Cabai Merah,60000.0,Cabai Merah Keriting
+2026-04-21,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-04-21,Kalimantan Barat,Telur Ayam,32700.0,Telur Ayam Ras Segar
+2026-04-21,Kalimantan Timur,Bawang Merah,49850.0,Bawang Merah Ukuran Sedang
+2026-04-21,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-21,Kalimantan Timur,Cabai Merah,47900.0,Cabai Merah Keriting
+2026-04-21,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-21,Kalimantan Timur,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-04-21,Papua,Bawang Merah,71650.0,Bawang Merah Ukuran Sedang
+2026-04-21,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-21,Papua,Cabai Merah,59400.0,Cabai Merah Keriting
+2026-04-21,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-21,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-21,Riau,Bawang Merah,40050.0,Bawang Merah Ukuran Sedang
+2026-04-21,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-21,Riau,Cabai Merah,42850.0,Cabai Merah Keriting
+2026-04-21,Riau,Minyak Goreng,20500.0,Minyak Goreng Curah
+2026-04-21,Riau,Telur Ayam,31100.0,Telur Ayam Ras Segar
+2026-04-21,Sulawesi Selatan,Bawang Merah,41400.0,Bawang Merah Ukuran Sedang
+2026-04-21,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-21,Sulawesi Selatan,Cabai Merah,32400.0,Cabai Merah Keriting
+2026-04-21,Sulawesi Selatan,Minyak Goreng,18450.0,Minyak Goreng Curah
+2026-04-21,Sulawesi Selatan,Telur Ayam,28950.0,Telur Ayam Ras Segar
+2026-04-21,Sulawesi Utara,Bawang Merah,50000.0,Bawang Merah Ukuran Sedang
+2026-04-21,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-21,Sulawesi Utara,Cabai Merah,34400.0,Cabai Merah Keriting
+2026-04-21,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-21,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-21,Sumatera Utara,Bawang Merah,39600.0,Bawang Merah Ukuran Sedang
+2026-04-21,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-21,Sumatera Utara,Cabai Merah,28700.0,Cabai Merah Keriting
+2026-04-21,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-21,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-22,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-22,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-22,DKI Jakarta,Cabai Merah,49550.0,Cabai Merah Keriting
+2026-04-22,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-22,DKI Jakarta,Telur Ayam,29700.0,Telur Ayam Ras Segar
+2026-04-22,Jawa Tengah,Bawang Merah,40000.0,Bawang Merah Ukuran Sedang
+2026-04-22,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-22,Jawa Tengah,Cabai Merah,40500.0,Cabai Merah Keriting
+2026-04-22,Jawa Tengah,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-22,Jawa Tengah,Telur Ayam,27000.0,Telur Ayam Ras Segar
+2026-04-22,Kalimantan Barat,Bawang Merah,47400.0,Bawang Merah Ukuran Sedang
+2026-04-22,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-22,Kalimantan Barat,Cabai Merah,59400.0,Cabai Merah Keriting
+2026-04-22,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-04-22,Kalimantan Barat,Telur Ayam,32600.0,Telur Ayam Ras Segar
+2026-04-22,Kalimantan Timur,Bawang Merah,48750.0,Bawang Merah Ukuran Sedang
+2026-04-22,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-22,Kalimantan Timur,Cabai Merah,46250.0,Cabai Merah Keriting
+2026-04-22,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-22,Kalimantan Timur,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-04-22,Papua,Bawang Merah,71650.0,Bawang Merah Ukuran Sedang
+2026-04-22,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-22,Papua,Cabai Merah,59900.0,Cabai Merah Keriting
+2026-04-22,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-22,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-22,Riau,Bawang Merah,40200.0,Bawang Merah Ukuran Sedang
+2026-04-22,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-22,Riau,Cabai Merah,42750.0,Cabai Merah Keriting
+2026-04-22,Riau,Minyak Goreng,20650.0,Minyak Goreng Curah
+2026-04-22,Riau,Telur Ayam,31050.0,Telur Ayam Ras Segar
+2026-04-22,Sulawesi Selatan,Bawang Merah,40900.0,Bawang Merah Ukuran Sedang
+2026-04-22,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-22,Sulawesi Selatan,Cabai Merah,32400.0,Cabai Merah Keriting
+2026-04-22,Sulawesi Selatan,Minyak Goreng,18450.0,Minyak Goreng Curah
+2026-04-22,Sulawesi Selatan,Telur Ayam,28950.0,Telur Ayam Ras Segar
+2026-04-22,Sulawesi Utara,Bawang Merah,49400.0,Bawang Merah Ukuran Sedang
+2026-04-22,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-22,Sulawesi Utara,Cabai Merah,33000.0,Cabai Merah Keriting
+2026-04-22,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-22,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-22,Sumatera Utara,Bawang Merah,39650.0,Bawang Merah Ukuran Sedang
+2026-04-22,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-22,Sumatera Utara,Cabai Merah,29100.0,Cabai Merah Keriting
+2026-04-22,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-22,Sumatera Utara,Telur Ayam,32450.0,Telur Ayam Ras Segar
+2026-04-23,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-23,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-23,DKI Jakarta,Cabai Merah,49550.0,Cabai Merah Keriting
+2026-04-23,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-23,DKI Jakarta,Telur Ayam,29700.0,Telur Ayam Ras Segar
+2026-04-23,Jawa Tengah,Bawang Merah,40000.0,Bawang Merah Ukuran Sedang
+2026-04-23,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-23,Jawa Tengah,Cabai Merah,41450.0,Cabai Merah Keriting
+2026-04-23,Jawa Tengah,Minyak Goreng,21200.0,Minyak Goreng Curah
+2026-04-23,Jawa Tengah,Telur Ayam,26950.0,Telur Ayam Ras Segar
+2026-04-23,Kalimantan Barat,Bawang Merah,47850.0,Bawang Merah Ukuran Sedang
+2026-04-23,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-23,Kalimantan Barat,Cabai Merah,61600.0,Cabai Merah Keriting
+2026-04-23,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-23,Kalimantan Barat,Telur Ayam,32450.0,Telur Ayam Ras Segar
+2026-04-23,Kalimantan Timur,Bawang Merah,48750.0,Bawang Merah Ukuran Sedang
+2026-04-23,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-23,Kalimantan Timur,Cabai Merah,46500.0,Cabai Merah Keriting
+2026-04-23,Kalimantan Timur,Minyak Goreng,20300.0,Minyak Goreng Curah
+2026-04-23,Kalimantan Timur,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-04-23,Papua,Bawang Merah,71000.0,Bawang Merah Ukuran Sedang
+2026-04-23,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-23,Papua,Cabai Merah,58500.0,Cabai Merah Keriting
+2026-04-23,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-23,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-23,Riau,Bawang Merah,39450.0,Bawang Merah Ukuran Sedang
+2026-04-23,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-23,Riau,Cabai Merah,44150.0,Cabai Merah Keriting
+2026-04-23,Riau,Minyak Goreng,21200.0,Minyak Goreng Curah
+2026-04-23,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-23,Sulawesi Selatan,Bawang Merah,40400.0,Bawang Merah Ukuran Sedang
+2026-04-23,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-23,Sulawesi Selatan,Cabai Merah,32900.0,Cabai Merah Keriting
+2026-04-23,Sulawesi Selatan,Minyak Goreng,18450.0,Minyak Goreng Curah
+2026-04-23,Sulawesi Selatan,Telur Ayam,28950.0,Telur Ayam Ras Segar
+2026-04-23,Sulawesi Utara,Bawang Merah,47650.0,Bawang Merah Ukuran Sedang
+2026-04-23,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-23,Sulawesi Utara,Cabai Merah,33000.0,Cabai Merah Keriting
+2026-04-23,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-23,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-23,Sumatera Utara,Bawang Merah,39450.0,Bawang Merah Ukuran Sedang
+2026-04-23,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-23,Sumatera Utara,Cabai Merah,29100.0,Cabai Merah Keriting
+2026-04-23,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-23,Sumatera Utara,Telur Ayam,32450.0,Telur Ayam Ras Segar
+2026-04-24,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-24,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-24,DKI Jakarta,Cabai Merah,50400.0,Cabai Merah Keriting
+2026-04-24,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-24,DKI Jakarta,Telur Ayam,29000.0,Telur Ayam Ras Segar
+2026-04-24,Jawa Tengah,Bawang Merah,40150.0,Bawang Merah Ukuran Sedang
+2026-04-24,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-24,Jawa Tengah,Cabai Merah,41400.0,Cabai Merah Keriting
+2026-04-24,Jawa Tengah,Minyak Goreng,21200.0,Minyak Goreng Curah
+2026-04-24,Jawa Tengah,Telur Ayam,26900.0,Telur Ayam Ras Segar
+2026-04-24,Kalimantan Barat,Bawang Merah,48050.0,Bawang Merah Ukuran Sedang
+2026-04-24,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-24,Kalimantan Barat,Cabai Merah,60950.0,Cabai Merah Keriting
+2026-04-24,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-24,Kalimantan Barat,Telur Ayam,32300.0,Telur Ayam Ras Segar
+2026-04-24,Kalimantan Timur,Bawang Merah,51250.0,Bawang Merah Ukuran Sedang
+2026-04-24,Kalimantan Timur,Beras,16500.0,Beras Kualitas Medium I
+2026-04-24,Kalimantan Timur,Cabai Merah,51250.0,Cabai Merah Keriting
+2026-04-24,Kalimantan Timur,Minyak Goreng,20950.0,Minyak Goreng Curah
+2026-04-24,Kalimantan Timur,Telur Ayam,32600.0,Telur Ayam Ras Segar
+2026-04-24,Papua,Bawang Merah,71500.0,Bawang Merah Ukuran Sedang
+2026-04-24,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-24,Papua,Cabai Merah,59750.0,Cabai Merah Keriting
+2026-04-24,Papua,Minyak Goreng,21700.0,Minyak Goreng Curah
+2026-04-24,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-24,Riau,Bawang Merah,39450.0,Bawang Merah Ukuran Sedang
+2026-04-24,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-24,Riau,Cabai Merah,44150.0,Cabai Merah Keriting
+2026-04-24,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-24,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-24,Sulawesi Selatan,Bawang Merah,40400.0,Bawang Merah Ukuran Sedang
+2026-04-24,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-24,Sulawesi Selatan,Cabai Merah,32400.0,Cabai Merah Keriting
+2026-04-24,Sulawesi Selatan,Minyak Goreng,18450.0,Minyak Goreng Curah
+2026-04-24,Sulawesi Selatan,Telur Ayam,28950.0,Telur Ayam Ras Segar
+2026-04-24,Sulawesi Utara,Bawang Merah,47400.0,Bawang Merah Ukuran Sedang
+2026-04-24,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-24,Sulawesi Utara,Cabai Merah,32500.0,Cabai Merah Keriting
+2026-04-24,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-24,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-24,Sumatera Utara,Bawang Merah,39350.0,Bawang Merah Ukuran Sedang
+2026-04-24,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-24,Sumatera Utara,Cabai Merah,29350.0,Cabai Merah Keriting
+2026-04-24,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-24,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-27,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-27,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-27,DKI Jakarta,Cabai Merah,49500.0,Cabai Merah Keriting
+2026-04-27,DKI Jakarta,Minyak Goreng,23750.0,Minyak Goreng Curah
+2026-04-27,DKI Jakarta,Telur Ayam,28600.0,Telur Ayam Ras Segar
+2026-04-27,Jawa Tengah,Bawang Merah,40800.0,Bawang Merah Ukuran Sedang
+2026-04-27,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-27,Jawa Tengah,Cabai Merah,40750.0,Cabai Merah Keriting
+2026-04-27,Jawa Tengah,Minyak Goreng,21150.0,Minyak Goreng Curah
+2026-04-27,Jawa Tengah,Telur Ayam,26650.0,Telur Ayam Ras Segar
+2026-04-27,Kalimantan Barat,Bawang Merah,50850.0,Bawang Merah Ukuran Sedang
+2026-04-27,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-27,Kalimantan Barat,Cabai Merah,62200.0,Cabai Merah Keriting
+2026-04-27,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-27,Kalimantan Barat,Telur Ayam,32300.0,Telur Ayam Ras Segar
+2026-04-27,Kalimantan Timur,Bawang Merah,48350.0,Bawang Merah Ukuran Sedang
+2026-04-27,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-27,Kalimantan Timur,Cabai Merah,45850.0,Cabai Merah Keriting
+2026-04-27,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-04-27,Kalimantan Timur,Telur Ayam,31400.0,Telur Ayam Ras Segar
+2026-04-27,Papua,Bawang Merah,69500.0,Bawang Merah Ukuran Sedang
+2026-04-27,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-27,Papua,Cabai Merah,58150.0,Cabai Merah Keriting
+2026-04-27,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-04-27,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-27,Riau,Bawang Merah,40050.0,Bawang Merah Ukuran Sedang
+2026-04-27,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-27,Riau,Cabai Merah,45500.0,Cabai Merah Keriting
+2026-04-27,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-27,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-27,Sulawesi Selatan,Bawang Merah,39500.0,Bawang Merah Ukuran Sedang
+2026-04-27,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-27,Sulawesi Selatan,Cabai Merah,32950.0,Cabai Merah Keriting
+2026-04-27,Sulawesi Selatan,Minyak Goreng,18650.0,Minyak Goreng Curah
+2026-04-27,Sulawesi Selatan,Telur Ayam,27450.0,Telur Ayam Ras Segar
+2026-04-27,Sulawesi Utara,Bawang Merah,46650.0,Bawang Merah Ukuran Sedang
+2026-04-27,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-27,Sulawesi Utara,Cabai Merah,31650.0,Cabai Merah Keriting
+2026-04-27,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-27,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-27,Sumatera Utara,Bawang Merah,38450.0,Bawang Merah Ukuran Sedang
+2026-04-27,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-27,Sumatera Utara,Cabai Merah,31600.0,Cabai Merah Keriting
+2026-04-27,Sumatera Utara,Minyak Goreng,21250.0,Minyak Goreng Curah
+2026-04-27,Sumatera Utara,Telur Ayam,32400.0,Telur Ayam Ras Segar
+2026-04-28,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-28,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-28,DKI Jakarta,Cabai Merah,49500.0,Cabai Merah Keriting
+2026-04-28,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-04-28,DKI Jakarta,Telur Ayam,28450.0,Telur Ayam Ras Segar
+2026-04-28,Jawa Tengah,Bawang Merah,41850.0,Bawang Merah Ukuran Sedang
+2026-04-28,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-28,Jawa Tengah,Cabai Merah,41550.0,Cabai Merah Keriting
+2026-04-28,Jawa Tengah,Minyak Goreng,21150.0,Minyak Goreng Curah
+2026-04-28,Jawa Tengah,Telur Ayam,26600.0,Telur Ayam Ras Segar
+2026-04-28,Kalimantan Barat,Bawang Merah,51100.0,Bawang Merah Ukuran Sedang
+2026-04-28,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-28,Kalimantan Barat,Cabai Merah,63750.0,Cabai Merah Keriting
+2026-04-28,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-28,Kalimantan Barat,Telur Ayam,31850.0,Telur Ayam Ras Segar
+2026-04-28,Kalimantan Timur,Bawang Merah,48350.0,Bawang Merah Ukuran Sedang
+2026-04-28,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-28,Kalimantan Timur,Cabai Merah,45650.0,Cabai Merah Keriting
+2026-04-28,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-04-28,Kalimantan Timur,Telur Ayam,31400.0,Telur Ayam Ras Segar
+2026-04-28,Papua,Bawang Merah,69500.0,Bawang Merah Ukuran Sedang
+2026-04-28,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-28,Papua,Cabai Merah,57250.0,Cabai Merah Keriting
+2026-04-28,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-04-28,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-28,Riau,Bawang Merah,40050.0,Bawang Merah Ukuran Sedang
+2026-04-28,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-28,Riau,Cabai Merah,45950.0,Cabai Merah Keriting
+2026-04-28,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-28,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-28,Sulawesi Selatan,Bawang Merah,39500.0,Bawang Merah Ukuran Sedang
+2026-04-28,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-28,Sulawesi Selatan,Cabai Merah,32950.0,Cabai Merah Keriting
+2026-04-28,Sulawesi Selatan,Minyak Goreng,18650.0,Minyak Goreng Curah
+2026-04-28,Sulawesi Selatan,Telur Ayam,27450.0,Telur Ayam Ras Segar
+2026-04-28,Sulawesi Utara,Bawang Merah,46650.0,Bawang Merah Ukuran Sedang
+2026-04-28,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-28,Sulawesi Utara,Cabai Merah,29150.0,Cabai Merah Keriting
+2026-04-28,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-28,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-28,Sumatera Utara,Bawang Merah,39000.0,Bawang Merah Ukuran Sedang
+2026-04-28,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-28,Sumatera Utara,Cabai Merah,32700.0,Cabai Merah Keriting
+2026-04-28,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-28,Sumatera Utara,Telur Ayam,32300.0,Telur Ayam Ras Segar
+2026-04-29,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-29,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-29,DKI Jakarta,Cabai Merah,48650.0,Cabai Merah Keriting
+2026-04-29,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-04-29,DKI Jakarta,Telur Ayam,28250.0,Telur Ayam Ras Segar
+2026-04-29,Jawa Tengah,Bawang Merah,42250.0,Bawang Merah Ukuran Sedang
+2026-04-29,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-29,Jawa Tengah,Cabai Merah,41650.0,Cabai Merah Keriting
+2026-04-29,Jawa Tengah,Minyak Goreng,21150.0,Minyak Goreng Curah
+2026-04-29,Jawa Tengah,Telur Ayam,26650.0,Telur Ayam Ras Segar
+2026-04-29,Kalimantan Barat,Bawang Merah,51650.0,Bawang Merah Ukuran Sedang
+2026-04-29,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-29,Kalimantan Barat,Cabai Merah,64400.0,Cabai Merah Keriting
+2026-04-29,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-29,Kalimantan Barat,Telur Ayam,31550.0,Telur Ayam Ras Segar
+2026-04-29,Kalimantan Timur,Bawang Merah,48350.0,Bawang Merah Ukuran Sedang
+2026-04-29,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-29,Kalimantan Timur,Cabai Merah,44400.0,Cabai Merah Keriting
+2026-04-29,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-04-29,Kalimantan Timur,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-04-29,Papua,Bawang Merah,70000.0,Bawang Merah Ukuran Sedang
+2026-04-29,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-29,Papua,Cabai Merah,58750.0,Cabai Merah Keriting
+2026-04-29,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-04-29,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-29,Riau,Bawang Merah,40050.0,Bawang Merah Ukuran Sedang
+2026-04-29,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-29,Riau,Cabai Merah,45950.0,Cabai Merah Keriting
+2026-04-29,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-29,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-29,Sulawesi Selatan,Bawang Merah,39500.0,Bawang Merah Ukuran Sedang
+2026-04-29,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-29,Sulawesi Selatan,Cabai Merah,31950.0,Cabai Merah Keriting
+2026-04-29,Sulawesi Selatan,Minyak Goreng,18650.0,Minyak Goreng Curah
+2026-04-29,Sulawesi Selatan,Telur Ayam,27250.0,Telur Ayam Ras Segar
+2026-04-29,Sulawesi Utara,Bawang Merah,46650.0,Bawang Merah Ukuran Sedang
+2026-04-29,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-29,Sulawesi Utara,Cabai Merah,28750.0,Cabai Merah Keriting
+2026-04-29,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-29,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-29,Sumatera Utara,Bawang Merah,39000.0,Bawang Merah Ukuran Sedang
+2026-04-29,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-29,Sumatera Utara,Cabai Merah,32000.0,Cabai Merah Keriting
+2026-04-29,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-29,Sumatera Utara,Telur Ayam,32300.0,Telur Ayam Ras Segar
+2026-04-30,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-04-30,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-04-30,DKI Jakarta,Cabai Merah,48650.0,Cabai Merah Keriting
+2026-04-30,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-04-30,DKI Jakarta,Telur Ayam,28250.0,Telur Ayam Ras Segar
+2026-04-30,Jawa Tengah,Bawang Merah,42350.0,Bawang Merah Ukuran Sedang
+2026-04-30,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-04-30,Jawa Tengah,Cabai Merah,41550.0,Cabai Merah Keriting
+2026-04-30,Jawa Tengah,Minyak Goreng,21100.0,Minyak Goreng Curah
+2026-04-30,Jawa Tengah,Telur Ayam,26600.0,Telur Ayam Ras Segar
+2026-04-30,Kalimantan Barat,Bawang Merah,50700.0,Bawang Merah Ukuran Sedang
+2026-04-30,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-04-30,Kalimantan Barat,Cabai Merah,63150.0,Cabai Merah Keriting
+2026-04-30,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-04-30,Kalimantan Barat,Telur Ayam,31200.0,Telur Ayam Ras Segar
+2026-04-30,Kalimantan Timur,Bawang Merah,48350.0,Bawang Merah Ukuran Sedang
+2026-04-30,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-04-30,Kalimantan Timur,Cabai Merah,44150.0,Cabai Merah Keriting
+2026-04-30,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-04-30,Kalimantan Timur,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-04-30,Papua,Bawang Merah,70000.0,Bawang Merah Ukuran Sedang
+2026-04-30,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-04-30,Papua,Cabai Merah,59900.0,Cabai Merah Keriting
+2026-04-30,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-04-30,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-04-30,Riau,Bawang Merah,41150.0,Bawang Merah Ukuran Sedang
+2026-04-30,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-04-30,Riau,Cabai Merah,45850.0,Cabai Merah Keriting
+2026-04-30,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-30,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-04-30,Sulawesi Selatan,Bawang Merah,38900.0,Bawang Merah Ukuran Sedang
+2026-04-30,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-04-30,Sulawesi Selatan,Cabai Merah,31700.0,Cabai Merah Keriting
+2026-04-30,Sulawesi Selatan,Minyak Goreng,18650.0,Minyak Goreng Curah
+2026-04-30,Sulawesi Selatan,Telur Ayam,27250.0,Telur Ayam Ras Segar
+2026-04-30,Sulawesi Utara,Bawang Merah,46650.0,Bawang Merah Ukuran Sedang
+2026-04-30,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-04-30,Sulawesi Utara,Cabai Merah,28150.0,Cabai Merah Keriting
+2026-04-30,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-04-30,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-04-30,Sumatera Utara,Bawang Merah,39200.0,Bawang Merah Ukuran Sedang
+2026-04-30,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-04-30,Sumatera Utara,Cabai Merah,31550.0,Cabai Merah Keriting
+2026-04-30,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-04-30,Sumatera Utara,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-05-01,DKI Jakarta,Bawang Merah,48250.0,Bawang Merah Ukuran Sedang
+2026-05-01,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-01,DKI Jakarta,Cabai Merah,48650.0,Cabai Merah Keriting
+2026-05-01,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-01,DKI Jakarta,Telur Ayam,28250.0,Telur Ayam Ras Segar
+2026-05-01,Jawa Tengah,Bawang Merah,42350.0,Bawang Merah Ukuran Sedang
+2026-05-01,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-01,Jawa Tengah,Cabai Merah,41550.0,Cabai Merah Keriting
+2026-05-01,Jawa Tengah,Minyak Goreng,21100.0,Minyak Goreng Curah
+2026-05-01,Jawa Tengah,Telur Ayam,26600.0,Telur Ayam Ras Segar
+2026-05-01,Kalimantan Barat,Bawang Merah,50700.0,Bawang Merah Ukuran Sedang
+2026-05-01,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-05-01,Kalimantan Barat,Cabai Merah,63150.0,Cabai Merah Keriting
+2026-05-01,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-01,Kalimantan Barat,Telur Ayam,31200.0,Telur Ayam Ras Segar
+2026-05-01,Kalimantan Timur,Bawang Merah,48350.0,Bawang Merah Ukuran Sedang
+2026-05-01,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-05-01,Kalimantan Timur,Cabai Merah,44150.0,Cabai Merah Keriting
+2026-05-01,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-05-01,Kalimantan Timur,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-05-01,Papua,Bawang Merah,70000.0,Bawang Merah Ukuran Sedang
+2026-05-01,Papua,Beras,19100.0,Beras Kualitas Medium I
+2026-05-01,Papua,Cabai Merah,59900.0,Cabai Merah Keriting
+2026-05-01,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-05-01,Papua,Telur Ayam,41600.0,Telur Ayam Ras Segar
+2026-05-01,Riau,Bawang Merah,41150.0,Bawang Merah Ukuran Sedang
+2026-05-01,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-01,Riau,Cabai Merah,45850.0,Cabai Merah Keriting
+2026-05-01,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-01,Riau,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-05-01,Sulawesi Selatan,Bawang Merah,38900.0,Bawang Merah Ukuran Sedang
+2026-05-01,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-01,Sulawesi Selatan,Cabai Merah,31700.0,Cabai Merah Keriting
+2026-05-01,Sulawesi Selatan,Minyak Goreng,18650.0,Minyak Goreng Curah
+2026-05-01,Sulawesi Selatan,Telur Ayam,27250.0,Telur Ayam Ras Segar
+2026-05-01,Sulawesi Utara,Bawang Merah,46650.0,Bawang Merah Ukuran Sedang
+2026-05-01,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-05-01,Sulawesi Utara,Cabai Merah,28150.0,Cabai Merah Keriting
+2026-05-01,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-05-01,Sulawesi Utara,Telur Ayam,33450.0,Telur Ayam Ras Segar
+2026-05-01,Sumatera Utara,Bawang Merah,39200.0,Bawang Merah Ukuran Sedang
+2026-05-01,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-05-01,Sumatera Utara,Cabai Merah,31550.0,Cabai Merah Keriting
+2026-05-01,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-01,Sumatera Utara,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-05-04,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-04,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-04,DKI Jakarta,Cabai Merah,51250.0,Cabai Merah Keriting
+2026-05-04,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-04,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-04,Jawa Tengah,Bawang Merah,42750.0,Bawang Merah Ukuran Sedang
+2026-05-04,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-04,Jawa Tengah,Cabai Merah,42500.0,Cabai Merah Keriting
+2026-05-04,Jawa Tengah,Minyak Goreng,20950.0,Minyak Goreng Curah
+2026-05-04,Jawa Tengah,Telur Ayam,26250.0,Telur Ayam Ras Segar
+2026-05-04,Kalimantan Barat,Bawang Merah,51400.0,Bawang Merah Ukuran Sedang
+2026-05-04,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-05-04,Kalimantan Barat,Cabai Merah,60650.0,Cabai Merah Keriting
+2026-05-04,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-04,Kalimantan Barat,Telur Ayam,30250.0,Telur Ayam Ras Segar
+2026-05-04,Kalimantan Timur,Bawang Merah,51250.0,Bawang Merah Ukuran Sedang
+2026-05-04,Kalimantan Timur,Beras,16500.0,Beras Kualitas Medium I
+2026-05-04,Kalimantan Timur,Cabai Merah,60000.0,Cabai Merah Keriting
+2026-05-04,Kalimantan Timur,Minyak Goreng,22450.0,Minyak Goreng Curah
+2026-05-04,Kalimantan Timur,Telur Ayam,30950.0,Telur Ayam Ras Segar
+2026-05-04,Papua,Bawang Merah,69150.0,Bawang Merah Ukuran Sedang
+2026-05-04,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-04,Papua,Cabai Merah,69250.0,Cabai Merah Keriting
+2026-05-04,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-05-04,Papua,Telur Ayam,41900.0,Telur Ayam Ras Segar
+2026-05-04,Riau,Bawang Merah,41150.0,Bawang Merah Ukuran Sedang
+2026-05-04,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-04,Riau,Cabai Merah,45500.0,Cabai Merah Keriting
+2026-05-04,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-04,Riau,Telur Ayam,30550.0,Telur Ayam Ras Segar
+2026-05-04,Sulawesi Selatan,Bawang Merah,38500.0,Bawang Merah Ukuran Sedang
+2026-05-04,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-04,Sulawesi Selatan,Cabai Merah,32900.0,Cabai Merah Keriting
+2026-05-04,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-04,Sulawesi Selatan,Telur Ayam,26700.0,Telur Ayam Ras Segar
+2026-05-04,Sulawesi Utara,Bawang Merah,47250.0,Bawang Merah Ukuran Sedang
+2026-05-04,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-05-04,Sulawesi Utara,Cabai Merah,30650.0,Cabai Merah Keriting
+2026-05-04,Sulawesi Utara,Minyak Goreng,17350.0,Minyak Goreng Curah
+2026-05-04,Sulawesi Utara,Telur Ayam,33350.0,Telur Ayam Ras Segar
+2026-05-04,Sumatera Utara,Bawang Merah,39450.0,Bawang Merah Ukuran Sedang
+2026-05-04,Sumatera Utara,Beras,14900.0,Beras Kualitas Medium I
+2026-05-04,Sumatera Utara,Cabai Merah,33950.0,Cabai Merah Keriting
+2026-05-04,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-04,Sumatera Utara,Telur Ayam,31900.0,Telur Ayam Ras Segar
+2026-05-05,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-05,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-05,DKI Jakarta,Cabai Merah,51250.0,Cabai Merah Keriting
+2026-05-05,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-05,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-05,Jawa Tengah,Bawang Merah,43050.0,Bawang Merah Ukuran Sedang
+2026-05-05,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-05,Jawa Tengah,Cabai Merah,43450.0,Cabai Merah Keriting
+2026-05-05,Jawa Tengah,Minyak Goreng,21050.0,Minyak Goreng Curah
+2026-05-05,Jawa Tengah,Telur Ayam,26150.0,Telur Ayam Ras Segar
+2026-05-05,Kalimantan Barat,Bawang Merah,53050.0,Bawang Merah Ukuran Sedang
+2026-05-05,Kalimantan Barat,Beras,17200.0,Beras Kualitas Medium I
+2026-05-05,Kalimantan Barat,Cabai Merah,59400.0,Cabai Merah Keriting
+2026-05-05,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-05,Kalimantan Barat,Telur Ayam,30250.0,Telur Ayam Ras Segar
+2026-05-05,Kalimantan Timur,Bawang Merah,47100.0,Bawang Merah Ukuran Sedang
+2026-05-05,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-05-05,Kalimantan Timur,Cabai Merah,55400.0,Cabai Merah Keriting
+2026-05-05,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-05-05,Kalimantan Timur,Telur Ayam,30750.0,Telur Ayam Ras Segar
+2026-05-05,Papua,Bawang Merah,69750.0,Bawang Merah Ukuran Sedang
+2026-05-05,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-05,Papua,Cabai Merah,68500.0,Cabai Merah Keriting
+2026-05-05,Papua,Minyak Goreng,21750.0,Minyak Goreng Curah
+2026-05-05,Papua,Telur Ayam,41900.0,Telur Ayam Ras Segar
+2026-05-05,Riau,Bawang Merah,40900.0,Bawang Merah Ukuran Sedang
+2026-05-05,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-05,Riau,Cabai Merah,45500.0,Cabai Merah Keriting
+2026-05-05,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-05,Riau,Telur Ayam,30550.0,Telur Ayam Ras Segar
+2026-05-05,Sulawesi Selatan,Bawang Merah,38500.0,Bawang Merah Ukuran Sedang
+2026-05-05,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-05,Sulawesi Selatan,Cabai Merah,32900.0,Cabai Merah Keriting
+2026-05-05,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-05,Sulawesi Selatan,Telur Ayam,26700.0,Telur Ayam Ras Segar
+2026-05-05,Sulawesi Utara,Bawang Merah,47250.0,Bawang Merah Ukuran Sedang
+2026-05-05,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-05-05,Sulawesi Utara,Cabai Merah,29750.0,Cabai Merah Keriting
+2026-05-05,Sulawesi Utara,Minyak Goreng,17100.0,Minyak Goreng Curah
+2026-05-05,Sulawesi Utara,Telur Ayam,33350.0,Telur Ayam Ras Segar
+2026-05-05,Sumatera Utara,Bawang Merah,40000.0,Bawang Merah Ukuran Sedang
+2026-05-05,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-05,Sumatera Utara,Cabai Merah,35050.0,Cabai Merah Keriting
+2026-05-05,Sumatera Utara,Minyak Goreng,21250.0,Minyak Goreng Curah
+2026-05-05,Sumatera Utara,Telur Ayam,31800.0,Telur Ayam Ras Segar
+2026-05-06,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-06,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-06,DKI Jakarta,Cabai Merah,51250.0,Cabai Merah Keriting
+2026-05-06,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-06,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-06,Jawa Tengah,Bawang Merah,43400.0,Bawang Merah Ukuran Sedang
+2026-05-06,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-06,Jawa Tengah,Cabai Merah,43850.0,Cabai Merah Keriting
+2026-05-06,Jawa Tengah,Minyak Goreng,21050.0,Minyak Goreng Curah
+2026-05-06,Jawa Tengah,Telur Ayam,26050.0,Telur Ayam Ras Segar
+2026-05-06,Kalimantan Timur,Bawang Merah,47150.0,Bawang Merah Ukuran Sedang
+2026-05-06,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-05-06,Kalimantan Timur,Cabai Merah,56650.0,Cabai Merah Keriting
+2026-05-06,Kalimantan Timur,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-05-06,Kalimantan Timur,Telur Ayam,30750.0,Telur Ayam Ras Segar
+2026-05-06,Papua,Bawang Merah,70000.0,Bawang Merah Ukuran Sedang
+2026-05-06,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-06,Papua,Cabai Merah,68250.0,Cabai Merah Keriting
+2026-05-06,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-06,Papua,Telur Ayam,41900.0,Telur Ayam Ras Segar
+2026-05-06,Riau,Bawang Merah,41600.0,Bawang Merah Ukuran Sedang
+2026-05-06,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-06,Riau,Cabai Merah,45500.0,Cabai Merah Keriting
+2026-05-06,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-06,Riau,Telur Ayam,30550.0,Telur Ayam Ras Segar
+2026-05-06,Sulawesi Selatan,Bawang Merah,38250.0,Bawang Merah Ukuran Sedang
+2026-05-06,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-06,Sulawesi Selatan,Cabai Merah,33900.0,Cabai Merah Keriting
+2026-05-06,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-06,Sulawesi Selatan,Telur Ayam,26700.0,Telur Ayam Ras Segar
+2026-05-06,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-06,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-05-06,Sulawesi Utara,Cabai Merah,31500.0,Cabai Merah Keriting
+2026-05-06,Sulawesi Utara,Minyak Goreng,17150.0,Minyak Goreng Curah
+2026-05-06,Sulawesi Utara,Telur Ayam,33300.0,Telur Ayam Ras Segar
+2026-05-06,Sumatera Utara,Bawang Merah,41250.0,Bawang Merah Ukuran Sedang
+2026-05-06,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-06,Sumatera Utara,Cabai Merah,33950.0,Cabai Merah Keriting
+2026-05-06,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-06,Sumatera Utara,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-05-07,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-07,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-07,DKI Jakarta,Cabai Merah,51250.0,Cabai Merah Keriting
+2026-05-07,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-07,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-07,Jawa Tengah,Bawang Merah,43850.0,Bawang Merah Ukuran Sedang
+2026-05-07,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-07,Jawa Tengah,Cabai Merah,44450.0,Cabai Merah Keriting
+2026-05-07,Jawa Tengah,Minyak Goreng,21050.0,Minyak Goreng Curah
+2026-05-07,Jawa Tengah,Telur Ayam,26050.0,Telur Ayam Ras Segar
+2026-05-07,Kalimantan Barat,Bawang Merah,53000.0,Bawang Merah Ukuran Sedang
+2026-05-07,Kalimantan Barat,Beras,17200.0,Beras Kualitas Medium I
+2026-05-07,Kalimantan Barat,Cabai Merah,55650.0,Cabai Merah Keriting
+2026-05-07,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-07,Kalimantan Barat,Telur Ayam,30250.0,Telur Ayam Ras Segar
+2026-05-07,Kalimantan Timur,Bawang Merah,47000.0,Bawang Merah Ukuran Sedang
+2026-05-07,Kalimantan Timur,Beras,16850.0,Beras Kualitas Medium I
+2026-05-07,Kalimantan Timur,Cabai Merah,57100.0,Cabai Merah Keriting
+2026-05-07,Kalimantan Timur,Minyak Goreng,20850.0,Minyak Goreng Curah
+2026-05-07,Kalimantan Timur,Telur Ayam,30300.0,Telur Ayam Ras Segar
+2026-05-07,Papua,Bawang Merah,69000.0,Bawang Merah Ukuran Sedang
+2026-05-07,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-07,Papua,Cabai Merah,71500.0,Cabai Merah Keriting
+2026-05-07,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-07,Papua,Telur Ayam,41850.0,Telur Ayam Ras Segar
+2026-05-07,Riau,Bawang Merah,41500.0,Bawang Merah Ukuran Sedang
+2026-05-07,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-07,Riau,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-05-07,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-07,Riau,Telur Ayam,30500.0,Telur Ayam Ras Segar
+2026-05-07,Sulawesi Selatan,Bawang Merah,38250.0,Bawang Merah Ukuran Sedang
+2026-05-07,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-07,Sulawesi Selatan,Cabai Merah,34000.0,Cabai Merah Keriting
+2026-05-07,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-07,Sulawesi Selatan,Telur Ayam,26600.0,Telur Ayam Ras Segar
+2026-05-07,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-07,Sulawesi Utara,Beras,14700.0,Beras Kualitas Medium I
+2026-05-07,Sulawesi Utara,Cabai Merah,35000.0,Cabai Merah Keriting
+2026-05-07,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-05-07,Sulawesi Utara,Telur Ayam,33300.0,Telur Ayam Ras Segar
+2026-05-07,Sumatera Utara,Bawang Merah,42250.0,Bawang Merah Ukuran Sedang
+2026-05-07,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-07,Sumatera Utara,Cabai Merah,34800.0,Cabai Merah Keriting
+2026-05-07,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-07,Sumatera Utara,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-05-08,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-08,DKI Jakarta,Beras,16800.0,Beras Kualitas Medium I
+2026-05-08,DKI Jakarta,Cabai Merah,50400.0,Cabai Merah Keriting
+2026-05-08,DKI Jakarta,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-08,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-08,Jawa Tengah,Bawang Merah,44100.0,Bawang Merah Ukuran Sedang
+2026-05-08,Jawa Tengah,Beras,15750.0,Beras Kualitas Medium I
+2026-05-08,Jawa Tengah,Cabai Merah,45000.0,Cabai Merah Keriting
+2026-05-08,Jawa Tengah,Minyak Goreng,21150.0,Minyak Goreng Curah
+2026-05-08,Jawa Tengah,Telur Ayam,25800.0,Telur Ayam Ras Segar
+2026-05-08,Kalimantan Barat,Bawang Merah,53750.0,Bawang Merah Ukuran Sedang
+2026-05-08,Kalimantan Barat,Beras,17200.0,Beras Kualitas Medium I
+2026-05-08,Kalimantan Barat,Cabai Merah,55000.0,Cabai Merah Keriting
+2026-05-08,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-08,Kalimantan Barat,Telur Ayam,30300.0,Telur Ayam Ras Segar
+2026-05-08,Kalimantan Timur,Bawang Merah,51250.0,Bawang Merah Ukuran Sedang
+2026-05-08,Kalimantan Timur,Beras,16250.0,Beras Kualitas Medium I
+2026-05-08,Kalimantan Timur,Cabai Merah,61250.0,Cabai Merah Keriting
+2026-05-08,Kalimantan Timur,Minyak Goreng,22500.0,Minyak Goreng Curah
+2026-05-08,Kalimantan Timur,Telur Ayam,30950.0,Telur Ayam Ras Segar
+2026-05-08,Papua,Bawang Merah,69000.0,Bawang Merah Ukuran Sedang
+2026-05-08,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-08,Papua,Cabai Merah,71250.0,Cabai Merah Keriting
+2026-05-08,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-08,Papua,Telur Ayam,41850.0,Telur Ayam Ras Segar
+2026-05-08,Riau,Bawang Merah,41500.0,Bawang Merah Ukuran Sedang
+2026-05-08,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-08,Riau,Cabai Merah,45350.0,Cabai Merah Keriting
+2026-05-08,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-08,Riau,Telur Ayam,30500.0,Telur Ayam Ras Segar
+2026-05-08,Sulawesi Selatan,Bawang Merah,38500.0,Bawang Merah Ukuran Sedang
+2026-05-08,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-08,Sulawesi Selatan,Cabai Merah,33950.0,Cabai Merah Keriting
+2026-05-08,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-08,Sulawesi Selatan,Telur Ayam,26550.0,Telur Ayam Ras Segar
+2026-05-08,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-08,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-05-08,Sulawesi Utara,Cabai Merah,36500.0,Cabai Merah Keriting
+2026-05-08,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-05-08,Sulawesi Utara,Telur Ayam,33100.0,Telur Ayam Ras Segar
+2026-05-08,Sumatera Utara,Bawang Merah,42750.0,Bawang Merah Ukuran Sedang
+2026-05-08,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-08,Sumatera Utara,Cabai Merah,35850.0,Cabai Merah Keriting
+2026-05-08,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-08,Sumatera Utara,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-05-11,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-11,DKI Jakarta,Beras,16850.0,Beras Kualitas Medium I
+2026-05-11,DKI Jakarta,Cabai Merah,59450.0,Cabai Merah Keriting
+2026-05-11,DKI Jakarta,Minyak Goreng,23450.0,Minyak Goreng Curah
+2026-05-11,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-11,Jawa Tengah,Bawang Merah,44900.0,Bawang Merah Ukuran Sedang
+2026-05-11,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-11,Jawa Tengah,Cabai Merah,44550.0,Cabai Merah Keriting
+2026-05-11,Jawa Tengah,Minyak Goreng,20850.0,Minyak Goreng Curah
+2026-05-11,Jawa Tengah,Telur Ayam,25850.0,Telur Ayam Ras Segar
+2026-05-11,Kalimantan Barat,Bawang Merah,53900.0,Bawang Merah Ukuran Sedang
+2026-05-11,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-05-11,Kalimantan Barat,Cabai Merah,56250.0,Cabai Merah Keriting
+2026-05-11,Kalimantan Barat,Minyak Goreng,19250.0,Minyak Goreng Curah
+2026-05-11,Kalimantan Barat,Telur Ayam,28900.0,Telur Ayam Ras Segar
+2026-05-11,Kalimantan Timur,Bawang Merah,47100.0,Bawang Merah Ukuran Sedang
+2026-05-11,Kalimantan Timur,Beras,16750.0,Beras Kualitas Medium I
+2026-05-11,Kalimantan Timur,Cabai Merah,58750.0,Cabai Merah Keriting
+2026-05-11,Kalimantan Timur,Minyak Goreng,20850.0,Minyak Goreng Curah
+2026-05-11,Kalimantan Timur,Telur Ayam,31050.0,Telur Ayam Ras Segar
+2026-05-11,Papua,Bawang Merah,69650.0,Bawang Merah Ukuran Sedang
+2026-05-11,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-11,Papua,Cabai Merah,68650.0,Cabai Merah Keriting
+2026-05-11,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-11,Papua,Telur Ayam,41850.0,Telur Ayam Ras Segar
+2026-05-11,Riau,Bawang Merah,42800.0,Bawang Merah Ukuran Sedang
+2026-05-11,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-11,Riau,Cabai Merah,46150.0,Cabai Merah Keriting
+2026-05-11,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-11,Riau,Telur Ayam,30500.0,Telur Ayam Ras Segar
+2026-05-11,Sulawesi Selatan,Bawang Merah,38750.0,Bawang Merah Ukuran Sedang
+2026-05-11,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-11,Sulawesi Selatan,Cabai Merah,37250.0,Cabai Merah Keriting
+2026-05-11,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-11,Sulawesi Selatan,Telur Ayam,26200.0,Telur Ayam Ras Segar
+2026-05-11,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-11,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-05-11,Sulawesi Utara,Cabai Merah,39400.0,Cabai Merah Keriting
+2026-05-11,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-05-11,Sulawesi Utara,Telur Ayam,33100.0,Telur Ayam Ras Segar
+2026-05-11,Sumatera Utara,Bawang Merah,44800.0,Bawang Merah Ukuran Sedang
+2026-05-11,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-11,Sumatera Utara,Cabai Merah,34150.0,Cabai Merah Keriting
+2026-05-11,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-11,Sumatera Utara,Telur Ayam,30850.0,Telur Ayam Ras Segar
+2026-05-12,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-12,DKI Jakarta,Beras,16850.0,Beras Kualitas Medium I
+2026-05-12,DKI Jakarta,Cabai Merah,59450.0,Cabai Merah Keriting
+2026-05-12,DKI Jakarta,Minyak Goreng,23450.0,Minyak Goreng Curah
+2026-05-12,DKI Jakarta,Telur Ayam,28100.0,Telur Ayam Ras Segar
+2026-05-12,Jawa Tengah,Bawang Merah,45050.0,Bawang Merah Ukuran Sedang
+2026-05-12,Jawa Tengah,Beras,15700.0,Beras Kualitas Medium I
+2026-05-12,Jawa Tengah,Cabai Merah,45250.0,Cabai Merah Keriting
+2026-05-12,Jawa Tengah,Minyak Goreng,20850.0,Minyak Goreng Curah
+2026-05-12,Jawa Tengah,Telur Ayam,25850.0,Telur Ayam Ras Segar
+2026-05-12,Kalimantan Barat,Bawang Merah,52250.0,Bawang Merah Ukuran Sedang
+2026-05-12,Kalimantan Barat,Beras,17250.0,Beras Kualitas Medium I
+2026-05-12,Kalimantan Barat,Cabai Merah,51900.0,Cabai Merah Keriting
+2026-05-12,Kalimantan Barat,Minyak Goreng,19200.0,Minyak Goreng Curah
+2026-05-12,Kalimantan Barat,Telur Ayam,29100.0,Telur Ayam Ras Segar
+2026-05-12,Kalimantan Timur,Bawang Merah,47150.0,Bawang Merah Ukuran Sedang
+2026-05-12,Kalimantan Timur,Beras,16750.0,Beras Kualitas Medium I
+2026-05-12,Kalimantan Timur,Cabai Merah,58750.0,Cabai Merah Keriting
+2026-05-12,Kalimantan Timur,Minyak Goreng,20850.0,Minyak Goreng Curah
+2026-05-12,Kalimantan Timur,Telur Ayam,31050.0,Telur Ayam Ras Segar
+2026-05-12,Papua,Bawang Merah,70150.0,Bawang Merah Ukuran Sedang
+2026-05-12,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-12,Papua,Cabai Merah,69500.0,Cabai Merah Keriting
+2026-05-12,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-12,Papua,Telur Ayam,41850.0,Telur Ayam Ras Segar
+2026-05-12,Riau,Bawang Merah,42800.0,Bawang Merah Ukuran Sedang
+2026-05-12,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-12,Riau,Cabai Merah,46600.0,Cabai Merah Keriting
+2026-05-12,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-12,Riau,Telur Ayam,30500.0,Telur Ayam Ras Segar
+2026-05-12,Sulawesi Selatan,Bawang Merah,39250.0,Bawang Merah Ukuran Sedang
+2026-05-12,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-12,Sulawesi Selatan,Cabai Merah,37750.0,Cabai Merah Keriting
+2026-05-12,Sulawesi Selatan,Minyak Goreng,18750.0,Minyak Goreng Curah
+2026-05-12,Sulawesi Selatan,Telur Ayam,26200.0,Telur Ayam Ras Segar
+2026-05-12,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-12,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-05-12,Sulawesi Utara,Cabai Merah,44750.0,Cabai Merah Keriting
+2026-05-12,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-05-12,Sulawesi Utara,Telur Ayam,33100.0,Telur Ayam Ras Segar
+2026-05-12,Sumatera Utara,Bawang Merah,44800.0,Bawang Merah Ukuran Sedang
+2026-05-12,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-12,Sumatera Utara,Cabai Merah,34350.0,Cabai Merah Keriting
+2026-05-12,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-12,Sumatera Utara,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-05-13,DKI Jakarta,Bawang Merah,56300.0,Bawang Merah Ukuran Sedang
+2026-05-13,DKI Jakarta,Beras,17000.0,Beras Kualitas Medium I
+2026-05-13,DKI Jakarta,Cabai Merah,59450.0,Cabai Merah Keriting
+2026-05-13,DKI Jakarta,Minyak Goreng,23450.0,Minyak Goreng Curah
+2026-05-13,DKI Jakarta,Telur Ayam,27950.0,Telur Ayam Ras Segar
+2026-05-13,Jawa Tengah,Bawang Merah,44750.0,Bawang Merah Ukuran Sedang
+2026-05-13,Jawa Tengah,Beras,15650.0,Beras Kualitas Medium I
+2026-05-13,Jawa Tengah,Cabai Merah,44850.0,Cabai Merah Keriting
+2026-05-13,Jawa Tengah,Minyak Goreng,20800.0,Minyak Goreng Curah
+2026-05-13,Jawa Tengah,Telur Ayam,25600.0,Telur Ayam Ras Segar
+2026-05-13,Kalimantan Timur,Bawang Merah,51250.0,Bawang Merah Ukuran Sedang
+2026-05-13,Kalimantan Timur,Beras,16250.0,Beras Kualitas Medium I
+2026-05-13,Kalimantan Timur,Cabai Merah,53750.0,Cabai Merah Keriting
+2026-05-13,Kalimantan Timur,Minyak Goreng,22500.0,Minyak Goreng Curah
+2026-05-13,Kalimantan Timur,Telur Ayam,32550.0,Telur Ayam Ras Segar
+2026-05-13,Papua,Bawang Merah,70150.0,Bawang Merah Ukuran Sedang
+2026-05-13,Papua,Beras,18950.0,Beras Kualitas Medium I
+2026-05-13,Papua,Cabai Merah,67400.0,Cabai Merah Keriting
+2026-05-13,Papua,Minyak Goreng,22000.0,Minyak Goreng Curah
+2026-05-13,Papua,Telur Ayam,41850.0,Telur Ayam Ras Segar
+2026-05-13,Riau,Bawang Merah,42600.0,Bawang Merah Ukuran Sedang
+2026-05-13,Riau,Beras,16650.0,Beras Kualitas Medium I
+2026-05-13,Riau,Cabai Merah,46400.0,Cabai Merah Keriting
+2026-05-13,Riau,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-13,Riau,Telur Ayam,30500.0,Telur Ayam Ras Segar
+2026-05-13,Sulawesi Selatan,Bawang Merah,39750.0,Bawang Merah Ukuran Sedang
+2026-05-13,Sulawesi Selatan,Beras,14700.0,Beras Kualitas Medium I
+2026-05-13,Sulawesi Selatan,Cabai Merah,37600.0,Cabai Merah Keriting
+2026-05-13,Sulawesi Selatan,Minyak Goreng,18800.0,Minyak Goreng Curah
+2026-05-13,Sulawesi Selatan,Telur Ayam,25950.0,Telur Ayam Ras Segar
+2026-05-13,Sulawesi Utara,Bawang Merah,47500.0,Bawang Merah Ukuran Sedang
+2026-05-13,Sulawesi Utara,Beras,14750.0,Beras Kualitas Medium I
+2026-05-13,Sulawesi Utara,Cabai Merah,44900.0,Cabai Merah Keriting
+2026-05-13,Sulawesi Utara,Minyak Goreng,17300.0,Minyak Goreng Curah
+2026-05-13,Sulawesi Utara,Telur Ayam,33250.0,Telur Ayam Ras Segar
+2026-05-13,Sumatera Utara,Bawang Merah,45350.0,Bawang Merah Ukuran Sedang
+2026-05-13,Sumatera Utara,Beras,14950.0,Beras Kualitas Medium I
+2026-05-13,Sumatera Utara,Cabai Merah,33950.0,Cabai Merah Keriting
+2026-05-13,Sumatera Utara,Minyak Goreng,21300.0,Minyak Goreng Curah
+2026-05-13,Sumatera Utara,Telur Ayam,30900.0,Telur Ayam Ras Segar
+2026-05-14,Jawa Tengah,Bawang Merah,43250.0,Bawang Merah Ukuran Sedang
+2026-05-14,Jawa Tengah,Beras,14750.0,Beras Kualitas Medium I
+2026-05-14,Jawa Tengah,Cabai Merah,43400.0,Cabai Merah Keriting
+2026-05-14,Jawa Tengah,Minyak Goreng,20150.0,Minyak Goreng Curah
+2026-05-14,Jawa Tengah,Telur Ayam,25400.0,Telur Ayam Ras Segar
+2026-05-14,Papua,Bawang Merah,71250.0,Bawang Merah Ukuran Sedang
+2026-05-14,Papua,Beras,20450.0,Beras Kualitas Medium I
+2026-05-14,Papua,Cabai Merah,52900.0,Cabai Merah Keriting
+2026-05-14,Papua,Minyak Goreng,23600.0,Minyak Goreng Curah
+2026-05-14,Papua,Telur Ayam,42500.0,Telur Ayam Ras Segar

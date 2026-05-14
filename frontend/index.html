@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard interaktif yang memvisualisasikan pergerakan daya beli harian berdasarkan harga pangan nasional Indonesia.">
+    <title>Indeks Nasi Telur Anak Kos | Dashboard Daya Beli</title>
+    <!-- Outfit Font for Modern Look (Gojek Aesthetic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Welcome Popup -->
+    <div class="popup-overlay" id="welcome-popup">
+        <div class="popup-content">
+            <div class="popup-icon">💸</div>
+            <h2>Selamat Datang, Sobat Hemat!</h2>
+            <p>"Kata orang, uang bukan segalanya. Tapi coba deh bayar kos pakai senyuman — pasti langsung ditendang (eh, dipersilakan keluar) 😄.<br><br>Yuk, kita cek bareng seberapa tangguh daya beli kita hari ini. Siapa tau bisa lebih bijak atur uang jajan!"</p>
+            <button class="popup-btn" id="close-popup-btn">Yuk, Mulai Cek!</button>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">🍳 NasiTelur Index</div>
+        <div class="badge" id="live-track-btn" title="Sinkronisasi Data BI">Live Tracker 🔄</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Dari Dapur ke Data.<br><span class="highlight">Menuju Generasi Cerdas Indonesia.</span></h1>
+            <p>Memahami pergerakan harga pangan harian untuk membangun kesadaran finansial sejak dini.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- EXPLAINER: Apa Itu Daya Beli? -->
+        <section class="explainer-section">
+            <div class="explainer-box">
+                <div class="explainer-left">
+                    <span class="explainer-tag">💡 Edukasi Kilat</span>
+                    <h2>Apa Sih "Daya Beli" Itu?</h2>
+                    <p>Sederhananya begini: <strong>Daya beli adalah seberapa banyak barang yang bisa kita dapatkan dengan jumlah uang yang sama.</strong></p>
+                    <p>Bayangkan bulan lalu Rp 50.000 cukup untuk makan nasi telur 12 kali. Bulan ini, seiring pergerakan harga, uang yang sama cukup untuk 10 porsi. Nominalnya sama, tapi jumlah porsinya berubah.</p>
+                    <p>Itulah yang disebut <strong>"pergerakan daya beli"</strong> — memahami hal ini membantu kita jadi lebih cerdas dalam mengatur keuangan sehari-hari. 📊</p>
+                </div>
+                <div class="explainer-right">
+                    <div class="explainer-emoji">🛒➡️📉</div>
+                    <p class="explainer-punchline">"Uangnya sama,<br>porsinya berubah.<br><span>Itulah mengapa penting memahami inflasi.</span>"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DAYA BELI CARDS -->
+        <section class="power-section">
+            <div class="section-header">
+                <h2>🔥 Simulasi: Rp 50.000 Hari Ini</h2>
+                <p class="section-subtitle">Berapa kali kamu bisa makan nasi telur goreng hari ini dengan uang Rp 50.000?</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card glass-card">
+                    <div class="card-icon">🍚</div>
+                    <div class="card-title">Modal 1 Porsi Nasi Telur</div>
+                    <div class="card-value" id="biaya-porsi">Loading...</div>
+                    <div class="card-subtitle">= Beras 200gr + 1 Telur + Minyak 50ml</div>
+                </div>
+
+                <div class="card glass-card main-card">
+                    <div class="card-icon">🍽️</div>
+                    <div class="card-title">Porsi yang Bisa Kamu Nikmati</div>
+                    <div class="card-value massive" id="jumlah-porsi">...</div>
+                    <div class="card-subtitle highlight-red" id="porsi-comparison">Menghitung...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="story-box">
+                <div class="story-icon">☕</div>
+                <div class="story-text">
+                    <h3>The Coffee Insight ☕</h3>
+                    <p>Dengan pergerakan harga bahan pokok hari ini, selisih biaya makan bulanan setara dengan <strong>2 Gelas Kopi Susu</strong>. Informasi kecil yang bisa membantu perencanaan keuanganmu!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISUALIZATION: Grafik Pergerakan Harga -->
+        <section class="dashboard-visuals">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>📈 Pergerakan Harga 30 Hari Terakhir</h3>
+                    <p class="chart-subtitle">Geser kursor di atas grafik untuk melihat detail harga setiap harinya</p>
+                </div>
+                <div style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISUALIZATION: Grafik Porsi Nasi Telur -->
+        <section class="dashboard-visuals">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>🍽️ Berapa Porsi Nasi Telur per Hari?</h3>
+                    <p class="chart-subtitle">Jumlah porsi nasi telur yang bisa dinikmati dengan Rp 50.000 setiap harinya</p>
+                </div>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="porsiChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="raw-data-section">
+            <h2>Harga Bahan di Mini Market</h2>
+            <div class="data-cards" id="raw-data-container">
+                <!-- Injected via Javascript -->
+            </div>
+            
+            <div class="source-citation">
+                🛡️ <strong>Sumber Data Terintegrasi:</strong> Pusat Informasi Harga Pangan Strategis (PIHPS) Nasional - Bank Indonesia
+            </div>
+        </section>
+    </main>
+
+    <footer class="inspiration-footer">
+        <div class="footer-quote">
+            <p>"Sebab masa depan sungguh ada, dan harapanmu tidak akan hilang."</p>
+        </div>
+        <div class="footer-tagline">Dibangun dengan ❤️ untuk Generasi Cerdas Indonesia</div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

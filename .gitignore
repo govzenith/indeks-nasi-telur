@@ -1,0 +1,7 @@
+database.db
+__pycache__/
+*.pyc
+download_map.py
+frontend/map.svg
+frontend/map.png
+frontend/map_type.txt

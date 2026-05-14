@@ -1,0 +1,46 @@
+[2026-05-14T09:27:17] === PROCESSOR START ===
+[2026-05-14T09:27:17] Loaded 990 baris harga | tanggal 2026-04-14 -> 2026-05-14
+[2026-05-14T09:27:17] Forward+backward fill -> 1395 baris setelah expand grid
+[2026-05-14T09:27:17] Baseline harga dihitung untuk 45 kombinasi provinsi x komoditas
+[2026-05-14T09:27:17] Indeks provinsi: 279 baris (9 provinsi x ~31 hari)
+[2026-05-14T09:27:17] Indeks nasional: 31 hari
+[2026-05-14T09:27:17] Tersimpan: data_indeks.csv (279 baris), data_indeks_nasional.csv (31 baris)
+[2026-05-14T09:27:17] 
+=== RINGKASAN INDEKS TERAKHIR PER PROVINSI ===
+[2026-05-14T09:27:17]   Sulawesi Selatan     indeks= 99.40  Δ=+0.00%
+[2026-05-14T09:27:17]   Jawa Tengah          indeks= 99.17  Δ=-3.75%
+[2026-05-14T09:27:17]   Kalimantan Barat     indeks= 98.89  Δ=+0.00%
+[2026-05-14T09:27:17]   Papua                indeks=103.87  Δ=+0.82%
+[2026-05-14T09:27:17]   Kalimantan Timur     indeks=103.39  Δ=+0.00%
+[2026-05-14T09:27:17]   Sulawesi Utara       indeks=103.27  Δ=+0.00%
+[2026-05-14T09:27:17]   DKI Jakarta          indeks=106.58  Δ=+0.00%
+[2026-05-14T09:27:17]   Riau                 indeks=106.34  Δ=+0.00%
+[2026-05-14T09:27:17]   Sumatera Utara       indeks=109.79  Δ=+0.00%
+[2026-05-14T09:27:17] 
+=== INDEKS NASIONAL TERAKHIR ===
+[2026-05-14T09:27:17]   Tanggal 2026-05-14  indeks_nasional=102.70  Δ=-1.41%
+[2026-05-14T09:27:17] === PROCESSOR END ===
+
+[2026-05-14T09:28:07] === PROCESSOR START ===
+[2026-05-14T09:28:07] Loaded 990 baris harga | tanggal 2026-04-14 -> 2026-05-14
+[2026-05-14T09:28:07] Forward+backward fill -> 1395 baris setelah expand grid
+[2026-05-14T09:28:07] Baseline harga dihitung untuk 45 kombinasi provinsi x komoditas
+[2026-05-14T09:28:07] Indeks provinsi: 279 baris (9 provinsi x ~31 hari)
+[2026-05-14T09:28:07] Indeks nasional: 31 hari
+[2026-05-14T09:28:07] Tersimpan: data_indeks.csv (279 baris), data_indeks_nasional.csv (31 baris)
+[2026-05-14T09:28:07] 
+=== RINGKASAN INDEKS TERAKHIR PER PROVINSI ===
+[2026-05-14T09:28:07]   Sulawesi Selatan     indeks= 99.40  Δ=+0.00%
+[2026-05-14T09:28:07]   Jawa Tengah          indeks= 99.17  Δ=-3.75%
+[2026-05-14T09:28:07]   Kalimantan Barat     indeks= 98.89  Δ=+0.00%
+[2026-05-14T09:28:07]   Papua                indeks=103.87  Δ=+0.82%
+[2026-05-14T09:28:07]   Kalimantan Timur     indeks=103.39  Δ=+0.00%
+[2026-05-14T09:28:07]   Sulawesi Utara       indeks=103.27  Δ=+0.00%
+[2026-05-14T09:28:07]   DKI Jakarta          indeks=106.58  Δ=+0.00%
+[2026-05-14T09:28:07]   Riau                 indeks=106.34  Δ=+0.00%
+[2026-05-14T09:28:07]   Sumatera Utara       indeks=109.79  Δ=+0.00%
+[2026-05-14T09:28:07] 
+=== INDEKS NASIONAL TERAKHIR ===
+[2026-05-14T09:28:07]   Tanggal 2026-05-14  indeks_nasional=102.70  Δ=-1.41%
+[2026-05-14T09:28:07] === PROCESSOR END ===
+

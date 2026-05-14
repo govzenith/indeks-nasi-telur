@@ -222,6 +222,90 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
+        // === INDOMIE SURVIVAL INDEX ===
+        const indomieData = data.indomie_tracker;
+        if (indomieData && indomieData.length > 0) {
+            // Hitung insight cards
+            const awalBulan = indomieData.filter(d => d.hari <= 5);
+            const akhirBulan = indomieData.filter(d => d.hari >= 25);
+            const totalBungkus = indomieData.reduce((sum, d) => sum + d.bungkus, 0);
+            
+            const avgAwal = awalBulan.length > 0 ? (awalBulan.reduce((s, d) => s + d.bungkus, 0) / awalBulan.length).toFixed(1) : '0';
+            const avgAkhir = akhirBulan.length > 0 ? (akhirBulan.reduce((s, d) => s + d.bungkus, 0) / akhirBulan.length).toFixed(1) : '0';
+            
+            document.getElementById('indomie-awal').innerText = `${avgAwal} bungkus/hari`;
+            document.getElementById('indomie-akhir').innerText = `${avgAkhir} bungkus/hari`;
+            document.getElementById('indomie-total').innerText = `${totalBungkus} bungkus`;
+
+            // Format labels
+            const indomieLabels = indomieData.map(d => {
+                const date = new Date(d.tanggal);
+                return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+            });
+
+            // Warna berdasarkan tanggal dalam bulan
+            const indomieColors = indomieData.map(d => {
+                if (d.hari <= 10) return 'rgba(8, 120, 127, 0.7)';
+                if (d.hari <= 24) return 'rgba(255, 159, 28, 0.7)';
+                return 'rgba(230, 57, 70, 0.7)';
+            });
+
+            const ctx3 = document.getElementById('indomieChart').getContext('2d');
+            new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: indomieLabels,
+                    datasets: [{
+                        label: 'Bungkus Indomie',
+                        data: indomieData.map(d => d.bungkus),
+                        backgroundColor: indomieColors,
+                        borderRadius: 3,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0D3B66',
+                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
+                            bodyFont: { family: 'Outfit', size: 13 },
+                            padding: 14,
+                            cornerRadius: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    const d = indomieData[context.dataIndex];
+                                    return ` ${d.bungkus} bungkus (tanggal ${d.hari})`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            ticks: {
+                                font: { family: 'Outfit' },
+                                stepSize: 1,
+                                callback: function(value) {
+                                    return value + ' bks';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { 
+                                font: { family: 'Outfit', size: 10 }, 
+                                maxRotation: 0,
+                                maxTicksLimit: 15
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
     } catch (error) {
         console.error("Gagal mengambil data:", error);
         document.getElementById('biaya-porsi').innerText = "Error";

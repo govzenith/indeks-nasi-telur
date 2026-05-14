@@ -152,9 +152,97 @@ def export_to_json_v2():
     conn.close()
     print("Berhasil mengekspor data terbaru + historis ke frontend/data.json")
 
+# 6. GENERATOR DATA INDOMIE TRACKER (3 BULAN)
+def generate_indomie_tracker():
+    """
+    Logika: Pembelian Indomie cenderung meningkat menjelang akhir bulan (tanggal 25-31),
+    karena uang makan sudah menipis. Ini adalah indikator informal "kesehatan keuangan" anak kos.
+    """
+    import random
+    random.seed(99)  # Seed tetap agar konsisten
+    
+    today = datetime.datetime.now()
+    data = []
+    
+    # Generate 90 hari kebelakang (3 bulan)
+    for days_ago in range(89, -1, -1):
+        tanggal = today - datetime.timedelta(days=days_ago)
+        hari_dalam_bulan = tanggal.day
+        
+        # Pola pembelian berdasarkan tanggal dalam bulan
+        if hari_dalam_bulan <= 5:
+            # Awal bulan: uang masih ada, beli Indomie sedikit (0-1 bungkus)
+            bungkus = random.choices([0, 0, 0, 1], weights=[40, 30, 20, 10])[0]
+        elif hari_dalam_bulan <= 15:
+            # Pertengahan awal: mulai sesekali (0-2)
+            bungkus = random.choices([0, 1, 1, 2], weights=[30, 35, 25, 10])[0]
+        elif hari_dalam_bulan <= 24:
+            # Pertengahan akhir: mulai sering (1-2)
+            bungkus = random.choices([0, 1, 2, 2], weights=[15, 30, 35, 20])[0]
+        else:
+            # Akhir bulan: mode survival (2-3, kadang 4)
+            bungkus = random.choices([1, 2, 3, 3, 4], weights=[10, 20, 30, 25, 15])[0]
+        
+        data.append({
+            "tanggal": tanggal.strftime("%Y-%m-%d"),
+            "bungkus": bungkus,
+            "hari": hari_dalam_bulan
+        })
+    
+    return data
+
+# 7. FUNGSI EKSPOR JSON FINAL (DENGAN INDOMIE TRACKER)
+def export_to_json_final():
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    
+    # Ambil data terbaru per komoditas
+    cursor.execute("""
+        SELECT h.komoditas, h.harga, h.tanggal 
+        FROM harga_harian h
+        INNER JOIN (
+            SELECT komoditas, MAX(tanggal) as max_tanggal
+            FROM harga_harian
+            GROUP BY komoditas
+        ) latest ON h.komoditas = latest.komoditas AND h.tanggal = latest.max_tanggal
+    """)
+    latest_rows = cursor.fetchall()
+    
+    latest_dict = {}
+    for row in latest_rows:
+        latest_dict[row[0]] = {"harga": row[1], "tanggal": row[2]}
+    
+    # Ambil data historis per komoditas
+    cursor.execute("SELECT tanggal, komoditas, harga FROM harga_harian ORDER BY tanggal ASC")
+    history_rows = cursor.fetchall()
+    
+    history_dict = {}
+    for row in history_rows:
+        tanggal, komoditas, harga = row
+        if komoditas not in history_dict:
+            history_dict[komoditas] = {"tanggal": [], "harga": []}
+        history_dict[komoditas]["tanggal"].append(tanggal)
+        history_dict[komoditas]["harga"].append(harga)
+    
+    # Generate Indomie Tracker
+    indomie_data = generate_indomie_tracker()
+    
+    output = {
+        "terbaru": latest_dict,
+        "historis": history_dict,
+        "indomie_tracker": indomie_data
+    }
+    
+    os.makedirs('frontend', exist_ok=True)
+    with open('frontend/data.json', 'w') as f:
+        json.dump(output, f)
+        
+    conn.close()
+    print("Berhasil mengekspor data lengkap (termasuk Indomie Tracker) ke frontend/data.json")
+
 if __name__ == "__main__":
     print("Memulai Data Integration Pipeline Micro CPI...")
     setup_database()
     fetch_data_bank_indonesia()
-    export_to_json_v2()
+    export_to_json_final()
     print("Selesai! Pipeline berjalan sempurna.")

@@ -112,6 +112,34 @@
             </div>
         </section>
 
+        <!-- INDOMIE TRACKER -->
+        <section class="dashboard-visuals">
+            <div class="chart-container indomie-section">
+                <div class="chart-header">
+                    <div class="indomie-badge">🍜 FITUR BARU</div>
+                    <h3>Indomie Survival Index — 3 Bulan Terakhir</h3>
+                    <p class="chart-subtitle">Semakin mendekati akhir bulan, konsumsi Indomie meningkat — tanda klasik bahwa dana makan mulai menipis</p>
+                </div>
+                <div class="indomie-insight-row">
+                    <div class="indomie-insight">
+                        <span class="insight-label">Rata-rata Awal Bulan</span>
+                        <span class="insight-value" id="indomie-awal">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Rata-rata Akhir Bulan</span>
+                        <span class="insight-value accent" id="indomie-akhir">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Total 3 Bulan</span>
+                        <span class="insight-value" id="indomie-total">...</span>
+                    </div>
+                </div>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="indomieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
         <section class="raw-data-section">
             <h2>Harga Bahan di Mini Market</h2>
             <div class="data-cards" id="raw-data-container">

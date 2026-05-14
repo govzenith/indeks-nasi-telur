@@ -372,6 +372,55 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* --- INDOMIE TRACKER --- */
+.indomie-section {
+    border-top: 4px solid #E63946;
+}
+
+.indomie-badge {
+    display: inline-block;
+    background: #FFEBEE;
+    color: #E63946;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.indomie-insight-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.indomie-insight {
+    flex: 1;
+    background: var(--light-bg);
+    border-radius: 16px;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.insight-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.insight-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--elegant-dark);
+}
+
+.insight-value.accent {
+    color: #E63946;
+}
 
 
 /* --- INSPIRATIONAL FOOTER --- */

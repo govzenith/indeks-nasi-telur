@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js Annotation Plugin (untuk zone boxes & label di chart) -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3/dist/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
     <!-- Welcome Popup -->
@@ -87,6 +89,52 @@
                 <div class="story-text">
                     <h3>The Coffee Insight ☕</h3>
                     <p>Dengan pergerakan harga bahan pokok hari ini, selisih biaya makan bulanan setara dengan <strong>2 Gelas Kopi Susu</strong>. Informasi kecil yang bisa membantu perencanaan keuanganmu!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORYTELLING CHART UTAMA: Perjalanan Biaya Nasi Telur -->
+        <section class="dashboard-visuals scroll-reveal">
+            <div class="chart-container story-chart-wrapper">
+
+                <!-- Narrative yang di-generate JavaScript -->
+                <div class="chart-narrative" id="nasiTelur-narrative">Memuat cerita data...</div>
+
+                <div class="chart-header">
+                    <h3>🍽️ Perjalanan Biaya 1 Porsi Nasi Telur</h3>
+                    <p class="chart-subtitle">Setiap titik = 1 hari. Warna garis menunjukkan zona daya beli — hover untuk detail.</p>
+                </div>
+
+                <!-- Legend zona -->
+                <div class="zone-legend">
+                    <span class="zone-item zone-green">● 7+ Porsi <span class="zone-tag">Zona Hemat</span></span>
+                    <span class="zone-item zone-orange">● 6 Porsi <span class="zone-tag">Zona Normal</span></span>
+                    <span class="zone-item zone-red">● ≤5 Porsi <span class="zone-tag">Zona Mahal</span></span>
+                    <span class="zone-item zone-dashed">⌇ Prediksi 7 Hari</span>
+                </div>
+
+                <div style="position: relative; height: 420px; width: 100%;">
+                    <canvas id="nasiTelurStoryChart"></canvas>
+                </div>
+
+                <!-- Stats row di bawah chart -->
+                <div class="story-stats-row" id="story-stats-row">
+                    <div class="story-stat">
+                        <span class="stat-label">Hari Terhemat</span>
+                        <span class="stat-value green" id="stat-min">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Hari Termahal</span>
+                        <span class="stat-value red" id="stat-max">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Rata-rata 23 Hari</span>
+                        <span class="stat-value" id="stat-avg">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Perubahan Total</span>
+                        <span class="stat-value" id="stat-delta">...</span>
+                    </div>
                 </div>
             </div>
         </section>

@@ -2,247 +2,235 @@ import sqlite3
 import datetime
 import os
 import json
+import time
+import requests
 
-# Memastikan berada di direktori yang benar
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-# 1. SETUP DATABASE SQLITE
+BASE_URL = "https://www.bi.go.id/hargapangan"
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+    "Accept-Language": "id,en;q=0.9",
+    "X-Requested-With": "XMLHttpRequest",
+    "Referer": f"{BASE_URL}/TabelHarga/PasarTradisionalDaerah",
+}
+
+KOMODITAS = {
+    "Beras":         "com_3",   # Beras Kualitas Medium I
+    "Telur Ayam":    "com_10",  # Telur Ayam Ras Segar
+    "Minyak Goreng": "com_17",  # Minyak Goreng Curah
+}
+
+# 3 provinsi referensi yang terverifikasi aktif di PIHPS
+PROVINCES = {
+    "DKI Jakarta":    "13",
+    "Sumatera Utara": "12",
+    "Jawa Tengah":    "33",
+}
+
+
 def setup_database():
     conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    cursor.execute('''
+    conn.execute('''
         CREATE TABLE IF NOT EXISTS harga_harian (
-            tanggal TEXT,
+            tanggal   TEXT,
             komoditas TEXT,
-            harga REAL,
+            harga     REAL,
             UNIQUE(tanggal, komoditas)
         )
     ''')
     conn.commit()
     conn.close()
 
-# 2. FUNGSI MENYIMPAN DATA
-def simpan_ke_db(komoditas, harga):
+
+def fetch_grid(comcat_id, province_id, start_date, end_date):
+    params = {
+        "price_type_id": 1,
+        "comcat_id":     comcat_id,
+        "province_id":   province_id,
+        "regency_id":    "",
+        "market_id":     "",
+        "tipe_laporan":  1,
+        "start_date":    start_date.strftime("%Y-%m-%dT00:00:00.000"),
+        "end_date":      end_date.strftime("%Y-%m-%dT00:00:00.000"),
+    }
+    r = requests.get(
+        f"{BASE_URL}/WebSite/TabelHarga/GetGridDataDaerah",
+        params=params, headers=HEADERS, timeout=20
+    )
+    r.raise_for_status()
+    result = r.json()
+    return result.get("data", result) if isinstance(result, dict) else result
+
+
+def parse_grid_to_daily(rows):
+    """Ubah baris wide-format grid ke dict {tanggal_iso: harga}."""
+    if not rows or not isinstance(rows, list):
+        return {}
+    daily = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        for key, value in row.items():
+            if len(key) == 10 and key[2] == '/' and key[5] == '/':
+                try:
+                    tanggal = datetime.datetime.strptime(key, "%d/%m/%Y").strftime("%Y-%m-%d")
+                    if value is not None:
+                        # PIHPS mengirim harga sebagai string "16,800" — hapus koma ribuan
+                        daily[tanggal] = float(str(value).replace(',', ''))
+                except (ValueError, TypeError):
+                    continue
+    return daily
+
+
+def fetch_national_average(comcat_id, start_date, end_date):
+    """Rata-rata harga harian dari PROVINCES sebagai representasi nasional."""
+    totals = {}
+    counts = {}
+
+    for prov_name, prov_id in PROVINCES.items():
+        try:
+            rows  = fetch_grid(comcat_id, prov_id, start_date, end_date)
+            daily = parse_grid_to_daily(rows)
+            for tanggal, harga in daily.items():
+                totals[tanggal] = totals.get(tanggal, 0) + harga
+                counts[tanggal] = counts.get(tanggal, 0) + 1
+            print(f"    {prov_name}: {len(daily)} hari")
+            time.sleep(0.6)  # rate limiting sopan ke server BI
+        except Exception as e:
+            print(f"    SKIP {prov_name}: {e}")
+
+    result = {}
+    for tanggal, total in totals.items():
+        n = counts.get(tanggal, 0)
+        if n > 0:
+            result[tanggal] = round(total / n, -2)  # bulatkan ke ratusan
+    return result
+
+
+def simpan_ke_db(komoditas, tanggal, harga):
     conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    tanggal_hari_ini = datetime.datetime.now().strftime("%Y-%m-%d")
     try:
-        cursor.execute('''
-            INSERT OR REPLACE INTO harga_harian (tanggal, komoditas, harga)
-            VALUES (?, ?, ?)
-        ''', (tanggal_hari_ini, komoditas, harga))
+        conn.execute(
+            "INSERT OR REPLACE INTO harga_harian (tanggal, komoditas, harga) VALUES (?, ?, ?)",
+            (tanggal, komoditas, harga)
+        )
         conn.commit()
-    except Exception as e:
-        print(f"Gagal menyimpan {komoditas}: {e}")
     finally:
         conn.close()
 
-# 3. FUNGSI EKSPOR KE JSON UNTUK FRONTEND
-def export_to_json():
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    # BUG FIX: Subquery memastikan harga yang diambil PASTI dari tanggal terbaru
-    cursor.execute("""
-        SELECT h.komoditas, h.harga, h.tanggal 
-        FROM harga_harian h
-        INNER JOIN (
-            SELECT komoditas, MAX(tanggal) as max_tanggal
-            FROM harga_harian
-            GROUP BY komoditas
-        ) latest ON h.komoditas = latest.komoditas AND h.tanggal = latest.max_tanggal
-    """)
-    rows = cursor.fetchall()
-    
-    data_dict = {}
-    for row in rows:
-        data_dict[row[0]] = {"harga": row[1], "tanggal": row[2]}
-        
-    # Pastikan folder frontend ada
-    os.makedirs('frontend', exist_ok=True)
-    with open('frontend/data.json', 'w') as f:
-        json.dump(data_dict, f)
-        
-    conn.close()
-    print("Berhasil mengekspor data ke frontend/data.json")
 
-# 4. FUNGSI INTEGRASI API BANK INDONESIA
-def fetch_data_bank_indonesia():
-    import time
-    import random
-    print("Menghubungkan ke Server Pusat Informasi Harga Pangan Strategis (PIHPS)...")
-    time.sleep(1.5)
-    print("Berhasil mendapatkan otorisasi akses data publik Bank Indonesia.")
-    
-    # Menghasilkan data historis 30 hari untuk grafik storytelling
-    # Simulasi pergerakan harga realistis berdasarkan tren rata-rata nasional
-    base_prices = {
-        "Beras": 14800,
-        "Telur Ayam": 26500,
-        "Minyak Goreng": 17500
-    }
-    
-    today = datetime.datetime.now()
-    random.seed(42)  # Seed tetap agar data konsisten setiap kali dijalankan
-    
-    for days_ago in range(29, -1, -1):
-        tanggal = (today - datetime.timedelta(days=days_ago)).strftime("%Y-%m-%d")
-        for komoditas, base in base_prices.items():
-            # Simulasi tren naik bertahap + fluktuasi harian
-            tren_naik = (30 - days_ago) * (base * 0.001)  # Naik ~0.1% per hari
-            fluktuasi = random.uniform(-base * 0.015, base * 0.015)  # Fluktuasi +/- 1.5%
-            harga = round(base + tren_naik + fluktuasi, -2)  # Bulatkan ke ratusan
-            
-            conn = sqlite3.connect('database.db')
-            cursor = conn.cursor()
-            try:
-                cursor.execute('''
-                    INSERT OR REPLACE INTO harga_harian (tanggal, komoditas, harga)
-                    VALUES (?, ?, ?)
-                ''', (tanggal, komoditas, harga))
-                conn.commit()
-            except Exception as e:
-                pass
-            finally:
-                conn.close()
-    
-    print("Data historis 30 hari berhasil diproses.")
-
-# 5. FUNGSI EKSPOR JSON DENGAN DATA HISTORIS
-def export_to_json_v2():
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    
-    # Ambil data terbaru per komoditas (untuk kartu utama)
-    cursor.execute("""
-        SELECT h.komoditas, h.harga, h.tanggal 
-        FROM harga_harian h
-        INNER JOIN (
-            SELECT komoditas, MAX(tanggal) as max_tanggal
-            FROM harga_harian
-            GROUP BY komoditas
-        ) latest ON h.komoditas = latest.komoditas AND h.tanggal = latest.max_tanggal
-    """)
-    latest_rows = cursor.fetchall()
-    
-    latest_dict = {}
-    for row in latest_rows:
-        latest_dict[row[0]] = {"harga": row[1], "tanggal": row[2]}
-    
-    # Ambil data historis per komoditas (untuk grafik)
-    cursor.execute("SELECT tanggal, komoditas, harga FROM harga_harian ORDER BY tanggal ASC")
-    history_rows = cursor.fetchall()
-    
-    history_dict = {}
-    for row in history_rows:
-        tanggal, komoditas, harga = row
-        if komoditas not in history_dict:
-            history_dict[komoditas] = {"tanggal": [], "harga": []}
-        history_dict[komoditas]["tanggal"].append(tanggal)
-        history_dict[komoditas]["harga"].append(harga)
-    
-    output = {
-        "terbaru": latest_dict,
-        "historis": history_dict
-    }
-    
-    os.makedirs('frontend', exist_ok=True)
-    with open('frontend/data.json', 'w') as f:
-        json.dump(output, f)
-        
-    conn.close()
-    print("Berhasil mengekspor data terbaru + historis ke frontend/data.json")
-
-# 6. GENERATOR DATA INDOMIE TRACKER (3 BULAN)
 def generate_indomie_tracker():
     """
-    Logika: Pembelian Indomie cenderung meningkat menjelang akhir bulan (tanggal 25-31),
-    karena uang makan sudah menipis. Ini adalah indikator informal "kesehatan keuangan" anak kos.
+    Data kreatif: simulasi konsumsi Indomie berdasarkan tanggal dalam bulan.
+    Ini adalah 'indikator informal' — makin akhir bulan, makin banyak Indomie dimakan.
+    Seed tetap agar konsisten setiap kali dijalankan.
     """
     import random
-    random.seed(99)  # Seed tetap agar konsisten
-    
+    random.seed(99)
+
     today = datetime.datetime.now()
     data = []
-    
-    # Generate 90 hari kebelakang (3 bulan)
+
     for days_ago in range(89, -1, -1):
         tanggal = today - datetime.timedelta(days=days_ago)
-        hari_dalam_bulan = tanggal.day
-        
-        # Pola pembelian berdasarkan tanggal dalam bulan
-        if hari_dalam_bulan <= 5:
-            # Awal bulan: uang masih ada, beli Indomie sedikit (0-1 bungkus)
+        hari = tanggal.day
+
+        if hari <= 5:
             bungkus = random.choices([0, 0, 0, 1], weights=[40, 30, 20, 10])[0]
-        elif hari_dalam_bulan <= 15:
-            # Pertengahan awal: mulai sesekali (0-2)
+        elif hari <= 15:
             bungkus = random.choices([0, 1, 1, 2], weights=[30, 35, 25, 10])[0]
-        elif hari_dalam_bulan <= 24:
-            # Pertengahan akhir: mulai sering (1-2)
+        elif hari <= 24:
             bungkus = random.choices([0, 1, 2, 2], weights=[15, 30, 35, 20])[0]
         else:
-            # Akhir bulan: mode survival (2-3, kadang 4)
             bungkus = random.choices([1, 2, 3, 3, 4], weights=[10, 20, 30, 25, 15])[0]
-        
+
         data.append({
             "tanggal": tanggal.strftime("%Y-%m-%d"),
             "bungkus": bungkus,
-            "hari": hari_dalam_bulan
+            "hari":    hari
         })
-    
+
     return data
 
-# 7. FUNGSI EKSPOR JSON FINAL (DENGAN INDOMIE TRACKER)
-def export_to_json_final():
+
+def export_to_json():
+    """Ekspor data dari SQLite ke frontend/data.json (format yang dibaca app.js)."""
     conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-    
-    # Ambil data terbaru per komoditas
-    cursor.execute("""
-        SELECT h.komoditas, h.harga, h.tanggal 
+
+    # Harga terbaru per komoditas
+    rows = conn.execute("""
+        SELECT h.komoditas, h.harga, h.tanggal
         FROM harga_harian h
         INNER JOIN (
-            SELECT komoditas, MAX(tanggal) as max_tanggal
+            SELECT komoditas, MAX(tanggal) AS max_tanggal
             FROM harga_harian
             GROUP BY komoditas
         ) latest ON h.komoditas = latest.komoditas AND h.tanggal = latest.max_tanggal
-    """)
-    latest_rows = cursor.fetchall()
-    
-    latest_dict = {}
-    for row in latest_rows:
-        latest_dict[row[0]] = {"harga": row[1], "tanggal": row[2]}
-    
-    # Ambil data historis per komoditas
-    cursor.execute("SELECT tanggal, komoditas, harga FROM harga_harian ORDER BY tanggal ASC")
-    history_rows = cursor.fetchall()
-    
+    """).fetchall()
+    latest_dict = {r[0]: {"harga": r[1], "tanggal": r[2]} for r in rows}
+
+    # Historis 30 hari terakhir
+    rows = conn.execute("""
+        SELECT tanggal, komoditas, harga FROM harga_harian
+        WHERE tanggal >= date('now', '-30 days')
+        ORDER BY tanggal ASC
+    """).fetchall()
     history_dict = {}
-    for row in history_rows:
-        tanggal, komoditas, harga = row
+    for tanggal, komoditas, harga in rows:
         if komoditas not in history_dict:
             history_dict[komoditas] = {"tanggal": [], "harga": []}
         history_dict[komoditas]["tanggal"].append(tanggal)
         history_dict[komoditas]["harga"].append(harga)
-    
-    # Generate Indomie Tracker
-    indomie_data = generate_indomie_tracker()
-    
-    output = {
-        "terbaru": latest_dict,
-        "historis": history_dict,
-        "indomie_tracker": indomie_data
-    }
-    
-    os.makedirs('frontend', exist_ok=True)
-    with open('frontend/data.json', 'w') as f:
-        json.dump(output, f)
-        
+
     conn.close()
-    print("Berhasil mengekspor data lengkap (termasuk Indomie Tracker) ke frontend/data.json")
+
+    output = {
+        "terbaru":         latest_dict,
+        "historis":        history_dict,
+        "indomie_tracker": generate_indomie_tracker(),
+    }
+
+    os.makedirs('frontend', exist_ok=True)
+    with open('frontend/data.json', 'w', encoding='utf-8') as f:
+        json.dump(output, f, ensure_ascii=False)
+
+    print("\nEkspor selesai -> frontend/data.json")
+    print(f"  Komoditas terbaru : {list(latest_dict.keys())}")
+    for k, v in history_dict.items():
+        print(f"  {k:15s}: {len(v['tanggal'])} hari historis")
+
+
+def main(days_back=30):
+    print("=" * 50)
+    print(" Micro CPI Scraper — Data PIHPS Bank Indonesia")
+    print("=" * 50)
+    setup_database()
+
+    today      = datetime.date.today()
+    start_date = today - datetime.timedelta(days=days_back)
+    print(f"Rentang: {start_date}  ->  {today}\n")
+
+    for nama, comcat_id in KOMODITAS.items():
+        print(f"[{nama}]")
+        try:
+            daily = fetch_national_average(comcat_id, start_date, today)
+            if not daily:
+                print(f"  PERINGATAN: tidak ada data diterima")
+                continue
+            for tanggal, harga in sorted(daily.items()):
+                simpan_ke_db(nama, tanggal, harga)
+            print(f"  {len(daily)} hari tersimpan ke database")
+        except Exception as e:
+            print(f"  ERROR: {e}")
+
+    export_to_json()
+    print("\nSelesai! Jalankan 'git add frontend/data.json && git commit' untuk update live site.")
+
 
 if __name__ == "__main__":
-    print("Memulai Data Integration Pipeline Micro CPI...")
-    setup_database()
-    fetch_data_bank_indonesia()
-    export_to_json_final()
-    print("Selesai! Pipeline berjalan sempurna.")
+    import sys
+    days = int(sys.argv[1]) if len(sys.argv) > 1 else 30
+    main(days)

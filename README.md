@@ -1,30 +1,29 @@
-# 🇮🇩 Micro CPI Indonesia — Real-Time Inflation Dashboard
+# 🍳 Indeks Nasi Telur Anak Kos
 
-> Dashboard inflasi alternatif yang melacak harga **5 bahan pokok** di **9 provinsi** secara harian, menggunakan data resmi PIHPS Bank Indonesia.
+> Dashboard daya beli harian berbasis data harga **3 bahan pokok** dari PIHPS Bank Indonesia — dirancang dari sudut pandang perut dan dompet Gen Z.
 
-**Why?** Inflasi Indonesia versi resmi (IHK BPS) hanya dirilis sebulan sekali. Padahal harga di pasar bergerak setiap hari. Proyek ini membangun **indeks tandingan** yang lebih cepat dan transparan — sebagai latihan *data engineering* sekaligus alat literasi ekonomi bagi masyarakat.
+**Why?** Inflasi versi resmi (IHK BPS) dirilis sebulan sekali dan dihitung dalam angka abstrak. Proyek ini menerjemahkannya ke pertanyaan yang lebih nyata: *Dengan Rp 50.000, berapa porsi nasi telur yang bisa saya makan hari ini dibanding bulan lalu?*
+
+Live site: **[govzenith.github.io/indeks-nasi-telur](https://govzenith.github.io/indeks-nasi-telur/)**
 
 ## ✨ Fitur
 
-- 🔄 **Scraper otomatis** dari API publik PIHPS Bank Indonesia (`requests`-only, tanpa headless browser → hemat memory ~30 MB)
-- 📊 **Weighted Micro CPI**: 5 komoditas × 9 provinsi, dihitung mirip metodologi BPS (weighted average, bobot populasi untuk nasional)
-- 📈 **Dashboard interaktif** Streamlit: line chart, ranking inflasi, detail per komoditas, filter rentang tanggal
-- ⏰ **Auto-update harian** via Windows Task Scheduler atau GitHub Actions
-- 💾 **Storage CSV** (ringan, gratis, version-controllable)
+- 🔄 **Scraper otomatis** dari API publik PIHPS Bank Indonesia (`requests`-only, tanpa browser headless)
+- 📊 **Indeks Daya Beli**: harga 3 komoditas × 5 provinsi referensi, dirata-rata sebagai harga nasional
+- 📈 **Dashboard interaktif** (GitHub Pages + Chart.js): grafik 30 hari, porsi harian, Indomie Survival Index
+- 🌿 **Streamlit app** lokal dengan grafik historis dan metrik perbandingan vs kemarin
+- ⏰ **Auto-update harian** via GitHub Actions (setiap jam 10.00 WIB)
 
-## 🗺️ Cakupan Wilayah
+## 🛒 Komoditas yang Dilacak
 
-Sumatera Utara · Riau · DKI Jakarta · Jawa Tengah · Kalimantan Barat · Kalimantan Timur · Sulawesi Utara · Sulawesi Selatan · Papua
-
-## 🛒 Keranjang Komoditas (Bobot)
-
-| Komoditas | Bobot | Varian PIHPS |
+| Komoditas | Kode PIHPS | Satuan |
 |---|---|---|
-| Beras | 35% | Beras Kualitas Medium I |
-| Minyak Goreng | 20% | Minyak Goreng Curah |
-| Telur Ayam | 15% | Telur Ayam Ras Segar |
-| Cabai Merah | 15% | Cabai Merah Keriting |
-| Bawang Merah | 15% | Bawang Merah Ukuran Sedang |
+| Beras | com_3 | Beras Kualitas Medium I |
+| Telur Ayam | com_9 | Telur Ayam Ras Segar |
+| Minyak Goreng | com_14 | Minyak Goreng Curah |
+
+**Provinsi referensi** (rata-rata 3 provinsi = representasi harga nasional):
+DKI Jakarta · Sumatera Utara · Jawa Tengah
 
 ## 🚀 Cara Menjalankan
 
@@ -36,14 +35,14 @@ py -m venv venv
 pip install -r requirements.txt
 ```
 
-### Ambil data + hitung indeks
+### Ambil data PIHPS + update frontend
 
 ```bash
 python scraper.py 30      # bootstrap 30 hari ke belakang (sekali saja)
-python processor.py       # hitung Micro CPI
+python scraper.py 3       # update harian (3 hari terakhir)
 ```
 
-### Jalankan dashboard
+### Jalankan dashboard Streamlit
 
 ```bash
 streamlit run app.py
@@ -53,76 +52,51 @@ Buka `http://localhost:8501` di browser.
 
 ### Update harian otomatis (Windows)
 
-`run_daily.bat` sudah disiapkan. Setup via Task Scheduler:
-
+Setup via Task Scheduler menggunakan `run_daily.bat`:
 1. Buka **Task Scheduler** → **Create Basic Task**
 2. Name: `Micro CPI Daily Update`
 3. Trigger: **Daily**, jam **09:00**
 4. Action: **Start a program** → browse ke `run_daily.bat`
-5. Klik **Run** untuk test manual
 
-## 🌐 Deploy ke Streamlit Community Cloud (gratis, publik)
+## 🌐 Arsitektur
 
-1. Push repo ini ke GitHub (akun gratis)
-2. Login ke [share.streamlit.io](https://share.streamlit.io) dengan akun GitHub
-3. Klik **New app** → pilih repo → entry file: `app.py`
-4. Deploy → dapat URL `https://<your-app>.streamlit.app`
+```
+PIHPS API (Bank Indonesia)
+    │
+    └─→ scraper.py
+            │
+            ├─→ database.db          (SQLite — dibaca app.py Streamlit)
+            └─→ frontend/data.json   (dibaca index.html GitHub Pages)
+```
 
-> Untuk auto-update di Cloud, gunakan GitHub Actions (lihat `.github/workflows/daily-update.yml`).
+GitHub Actions menjalankan `scraper.py 3` setiap pagi dan meng-commit `frontend/data.json` ke repo secara otomatis → live site langsung terupdate.
 
 ## 📁 Struktur Proyek
 
 ```
-micro-cpi/
-├── app.py              # Streamlit dashboard
-├── scraper.py          # Pengambil data dari PIHPS
-├── processor.py        # Perhitungan Micro CPI
-├── run_daily.bat       # Batch script (Task Scheduler)
+indeks-nasi-telur/
+├── app.py              # Streamlit dashboard (lokal)
+├── scraper.py          # Scraper PIHPS + generator data.json
+├── run_daily.bat       # Batch script (Task Scheduler Windows)
 ├── requirements.txt
-├── data/
-│   ├── data_harga.csv          # harga mentah (long-format)
-│   ├── data_indeks.csv         # indeks per provinsi
-│   ├── data_indeks_nasional.csv
-│   └── raw/                    # cache JSON API per request
-└── .streamlit/config.toml
+├── frontend/
+│   ├── index.html      # Dashboard utama (GitHub Pages)
+│   ├── app.js          # Logic Chart.js + fetch data
+│   ├── style.css       # Styling
+│   ├── data.json       # Data JSON (di-generate scraper.py)
+│   └── indonesia.svg   # Peta Indonesia
+└── .github/workflows/
+    └── daily-update.yml  # Auto-update via GitHub Actions
 ```
-
-## ⚙️ Bagaimana Cara Kerjanya
-
-```
-PIHPS API → scraper.py → data/raw/*.json  ─┐
-                                            ├─→ data_harga.csv
-                                            │
-processor.py ←──────────────────────────────┘
-        │
-        ├─→ data_indeks.csv          (per provinsi)
-        └─→ data_indeks_nasional.csv (rata-rata 9 provinsi tertimbang populasi)
-
-app.py reads CSV → render dashboard
-```
-
-### Rumus Indeks
-
-Untuk setiap provinsi *p* dan tanggal *t*:
-```
-Indeks(p, t) = Σ_komoditas [ (Harga(p, k, t) / Harga(p, k, baseline)) × Bobot(k) ] × 100
-```
-
-Indeks Nasional:
-```
-Indeks_Nasional(t) = Σ_provinsi [ Indeks(p, t) × (Populasi(p) / Total) ]
-```
-
-Baseline = tanggal pertama tersedia per kombinasi (provinsi, komoditas). Harga di hari libur di-forward-fill dari hari kerja sebelumnya.
 
 ## 📚 Sumber Data
 
 - **PIHPS Nasional** — Bank Indonesia (https://www.bi.go.id/hargapangan)
-- **Populasi provinsi** — BPS estimasi 2023
+- Data bersifat publik, tidak memerlukan API key
 
 ## ⚠️ Disclaimer
 
-Proyek ini adalah **karya edukasi/portofolio** untuk kompetisi TUNAS / JuaraVibeCoding. Indeks Micro CPI di sini **bukan indikator resmi** pemerintah dan tidak bisa digunakan untuk keputusan kebijakan publik atau finansial.
+Proyek ini adalah **karya edukasi/portofolio** untuk kompetisi TUNAS / JuaraVibeCoding. Indeks Nasi Telur di sini **bukan indikator resmi** pemerintah dan tidak bisa digunakan untuk keputusan kebijakan publik atau finansial.
 
 ## 📜 Lisensi
 

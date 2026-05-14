@@ -365,16 +365,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
 
-        // Parallax pada floating shapes
-        parallaxShapes.forEach(shape => {
+        // Parallax pada floating shapes (bergerak + rotasi saat scroll)
+        parallaxShapes.forEach((shape, i) => {
             const speed = parseFloat(shape.dataset.speed) || 0.03;
-            shape.style.transform = `translateY(${scrollY * speed * 10}px)`;
+            const direction = i % 2 === 0 ? 1 : -1;
+            const yMove = scrollY * speed * 25;
+            const rotate = scrollY * speed * direction * 3;
+            shape.style.transform = `translateY(${yMove}px) rotate(${rotate}deg)`;
         });
 
-        // Parallax pada hero content (bergerak ke atas lebih cepat)
-        if (heroContent) {
-            const speed = parseFloat(heroContent.dataset.speed) || 0.08;
-            heroContent.style.transform = `translateY(${scrollY * speed * 5}px)`;
+        // Parallax pada hero content
+        if (heroContent && scrollY < 800) {
+            heroContent.style.transform = `translateY(${scrollY * 0.4}px)`;
+            heroContent.style.opacity = `${1 - scrollY / 700}`;
         }
     }, { passive: true });
 

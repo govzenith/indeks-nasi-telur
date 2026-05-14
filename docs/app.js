@@ -1,3 +1,294 @@
+// Zona daya beli — berapa porsi dari Rp 50.000
+const ZONA_7 = Math.floor(50000 / 7);   // ~7.143
+const ZONA_6 = Math.floor(50000 / 6);   // ~8.333
+
+function buildNasiTelurStoryChart(forecastData) {
+    if (!forecastData || !forecastData.biaya_harian || !forecastData.prediksi) return;
+
+    const bHarian  = forecastData.biaya_harian;
+    const prediksi = forecastData.prediksi;
+    const histVals = bHarian.map(d => d.biaya);
+
+    const fmt = t => new Date(t).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+    const histLabels = bHarian.map(d => fmt(d.tanggal));
+    const predLabels = prediksi.map(d => fmt(d.tanggal));
+    const allLabels  = [...histLabels, ...predLabels];
+
+    const lastVal  = histVals[histVals.length - 1];
+    const firstVal = histVals[0];
+    const minVal   = Math.min(...histVals);
+    const maxVal   = Math.max(...histVals);
+    const avgVal   = Math.round(histVals.reduce((s, v) => s + v, 0) / histVals.length);
+    const minIdx   = histVals.indexOf(minVal);
+    const maxIdx   = histVals.indexOf(maxVal);
+    const minDate  = bHarian[minIdx].tanggal;
+    const maxDate  = bHarian[maxIdx].tanggal;
+
+    // Hitung delta
+    const deltaRp  = lastVal - firstVal;
+    const deltaPct = ((deltaRp / firstVal) * 100).toFixed(1);
+    const arah     = deltaRp >= 0 ? 'naik' : 'turun';
+    const arahClr  = deltaRp >= 0 ? '#e63946' : '#27ae60';
+
+    // Update stats row
+    document.getElementById('stat-min').innerText = `Rp ${minVal.toLocaleString('id-ID')} (${fmt(minDate)})`;
+    document.getElementById('stat-max').innerText = `Rp ${maxVal.toLocaleString('id-ID')} (${fmt(maxDate)})`;
+    document.getElementById('stat-avg').innerText = `Rp ${avgVal.toLocaleString('id-ID')}`;
+    const deltaEl = document.getElementById('stat-delta');
+    deltaEl.innerText = `${deltaRp >= 0 ? '+' : ''}Rp ${Math.abs(deltaRp).toLocaleString('id-ID')} (${deltaRp >= 0 ? '+' : ''}${deltaPct}%)`;
+    deltaEl.style.color = arahClr;
+
+    // Narrative dinamis
+    const zoneNow = lastVal < ZONA_7 ? '7+ porsi' : lastVal < ZONA_6 ? '6 porsi' : '5 porsi atau kurang';
+    const predArah = forecastData.selisih >= 0 ? 'diprediksi naik' : 'diprediksi turun';
+    const narrEl = document.getElementById('nasiTelur-narrative');
+    if (narrEl) {
+        narrEl.innerHTML =
+            `Dalam <strong>${bHarian.length} hari terakhir</strong>, biaya 1 porsi nasi telur ` +
+            `<strong style="color:${arahClr}">${arah} ${Math.abs(deltaPct)}%</strong> — ` +
+            `dari <strong>Rp ${firstVal.toLocaleString('id-ID')}</strong> ke ` +
+            `<strong>Rp ${lastVal.toLocaleString('id-ID')}</strong>. ` +
+            `Daya beli hari ini: <strong>${zoneNow}</strong> dari Rp 50.000. ` +
+            `Harga <strong>cabai merah</strong> menjadi komponen paling volatil dalam resep ini. ` +
+            `Minggu depan biaya <strong>${predArah}</strong> sekitar ` +
+            `<strong>Rp ${Math.abs(forecastData.selisih).toLocaleString('id-ID')}</strong> ` +
+            `(${forecastData.persen_perubahan > 0 ? '+' : ''}${forecastData.persen_perubahan}%).`;
+    }
+
+    // Dataset: historis (dengan warna segmen per zona)
+    const lineHistoris = [...histVals, ...Array(prediksi.length).fill(null)];
+
+    // Dataset: prediksi (sambung di titik terakhir historis)
+    const linePrediksi = [
+        ...Array(histVals.length - 1).fill(null),
+        lastVal,
+        ...prediksi.map(d => d.biaya)
+    ];
+
+    const lineUpper = [...Array(histVals.length).fill(null), ...prediksi.map(d => d.upper)];
+    const lineLower = [...Array(histVals.length).fill(null), ...prediksi.map(d => d.lower)];
+
+    const ctx = document.getElementById('nasiTelurStoryChart').getContext('2d');
+
+    // Gradient fill untuk historis
+    const makeGradient = (chart) => {
+        const { ctx: c, chartArea } = chart;
+        if (!chartArea) return 'rgba(8,120,127,0.1)';
+        const grad = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+        grad.addColorStop(0,   'rgba(230, 57,  70,  0.18)');
+        grad.addColorStop(0.4, 'rgba(255, 159, 28,  0.10)');
+        grad.addColorStop(1,   'rgba(39,  174, 96,  0.04)');
+        return grad;
+    };
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: allLabels,
+            datasets: [
+                {
+                    label: 'Biaya 1 Porsi',
+                    data: lineHistoris,
+                    borderWidth: 3,
+                    fill: true,
+                    backgroundColor: ctx => makeGradient(ctx.chart),
+                    tension: 0.35,
+                    spanGaps: false,
+                    segment: {
+                        borderColor: ctx => {
+                            const avg = (ctx.p0.parsed.y + ctx.p1.parsed.y) / 2;
+                            if (avg < ZONA_7) return '#27ae60';
+                            if (avg < ZONA_6) return '#e67e22';
+                            return '#e63946';
+                        }
+                    },
+                    pointRadius: ctx => (ctx.dataIndex === minIdx || ctx.dataIndex === maxIdx) ? 7 : 3,
+                    pointBackgroundColor: ctx => {
+                        const v = ctx.parsed?.y;
+                        if (v == null) return 'transparent';
+                        if (v < ZONA_7) return '#27ae60';
+                        if (v < ZONA_6) return '#e67e22';
+                        return '#e63946';
+                    },
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 8,
+                },
+                {
+                    label: 'Prediksi',
+                    data: linePrediksi,
+                    borderColor: 'rgba(230,57,70,0.75)',
+                    borderWidth: 2.5,
+                    borderDash: [8, 5],
+                    fill: false,
+                    tension: 0.35,
+                    pointRadius: 4,
+                    pointBackgroundColor: 'rgba(230,57,70,0.75)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    spanGaps: false,
+                },
+                {
+                    label: 'Batas Atas',
+                    data: lineUpper,
+                    borderColor: 'rgba(230,57,70,0.2)',
+                    borderWidth: 1,
+                    borderDash: [3, 3],
+                    backgroundColor: 'rgba(230,57,70,0.06)',
+                    fill: '+1',
+                    tension: 0.35,
+                    pointRadius: 0,
+                    spanGaps: false,
+                },
+                {
+                    label: 'Batas Bawah',
+                    data: lineLower,
+                    borderColor: 'rgba(230,57,70,0.2)',
+                    borderWidth: 1,
+                    borderDash: [3, 3],
+                    fill: false,
+                    tension: 0.35,
+                    pointRadius: 0,
+                    spanGaps: false,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                    titleFont: { family: 'Inter', size: 13, weight: '800' },
+                    bodyFont:  { family: 'Inter', size: 12 },
+                    padding: 14,
+                    cornerRadius: 12,
+                    callbacks: {
+                        label: ctx => {
+                            if (ctx.parsed.y == null) return null;
+                            if (['Batas Atas', 'Batas Bawah'].includes(ctx.dataset.label)) return null;
+                            const v     = ctx.parsed.y;
+                            const porsi = Math.floor(50000 / v);
+                            const zone  = v < ZONA_7 ? '✅ Zona Hemat' : v < ZONA_6 ? '⚠️ Zona Normal' : '🔴 Zona Mahal';
+                            const tag   = ctx.dataset.label === 'Prediksi' ? ' (prediksi)' : '';
+                            return [
+                                ` ${ctx.dataset.label}${tag}: Rp ${Math.round(v).toLocaleString('id-ID')}`,
+                                ` Dapat: ${porsi} porsi dari Rp 50.000`,
+                                ` ${zone}`
+                            ];
+                        }
+                    }
+                },
+                annotation: {
+                    annotations: {
+                        // Background zona hemat
+                        bgHemat: {
+                            type: 'box', yMin: 0, yMax: ZONA_7,
+                            backgroundColor: 'rgba(39,174,96,0.05)',
+                            borderWidth: 0,
+                        },
+                        // Background zona normal
+                        bgNormal: {
+                            type: 'box', yMin: ZONA_7, yMax: ZONA_6,
+                            backgroundColor: 'rgba(230,126,34,0.04)',
+                            borderWidth: 0,
+                        },
+                        // Background zona mahal
+                        bgMahal: {
+                            type: 'box', yMin: ZONA_6, yMax: 20000,
+                            backgroundColor: 'rgba(230,57,70,0.04)',
+                            borderWidth: 0,
+                        },
+                        // Garis batas 7 porsi
+                        line7: {
+                            type: 'line', yMin: ZONA_7, yMax: ZONA_7,
+                            borderColor: 'rgba(39,174,96,0.3)',
+                            borderWidth: 1, borderDash: [4, 4],
+                        },
+                        // Garis batas 6 porsi
+                        line6: {
+                            type: 'line', yMin: ZONA_6, yMax: ZONA_6,
+                            borderColor: 'rgba(230,57,70,0.3)',
+                            borderWidth: 1, borderDash: [4, 4],
+                        },
+                        // Garis rata-rata
+                        avgLine: {
+                            type: 'line', yMin: avgVal, yMax: avgVal,
+                            borderColor: 'rgba(100,100,100,0.4)',
+                            borderWidth: 1.5, borderDash: [6, 4],
+                            label: {
+                                display: true,
+                                content: `Rata-rata Rp ${avgVal.toLocaleString('id-ID')}`,
+                                position: 'start',
+                                color: '#888',
+                                font: { family: 'Inter', size: 10 },
+                                backgroundColor: 'rgba(255,255,255,0.85)',
+                                padding: { x: 6, y: 3 }, borderRadius: 4,
+                            }
+                        },
+                        // Label min
+                        lblMin: {
+                            type: 'label',
+                            xValue: minIdx, yValue: minVal,
+                            content: [`Terhemat`, `Rp ${minVal.toLocaleString('id-ID')}`],
+                            color: '#27ae60',
+                            font: { family: 'Inter', size: 10, weight: '700' },
+                            backgroundColor: 'rgba(255,255,255,0.9)',
+                            padding: { x: 6, y: 4 }, borderRadius: 6,
+                            yAdjust: 28,
+                        },
+                        // Label max
+                        lblMax: {
+                            type: 'label',
+                            xValue: maxIdx, yValue: maxVal,
+                            content: [`Termahal`, `Rp ${maxVal.toLocaleString('id-ID')}`],
+                            color: '#e63946',
+                            font: { family: 'Inter', size: 10, weight: '700' },
+                            backgroundColor: 'rgba(255,255,255,0.9)',
+                            padding: { x: 6, y: 4 }, borderRadius: 6,
+                            yAdjust: -28,
+                        },
+                        // Pemisah "hari ini"
+                        todayLine: {
+                            type: 'line',
+                            xMin: histLabels.length - 1,
+                            xMax: histLabels.length - 1,
+                            borderColor: 'rgba(13,59,102,0.45)',
+                            borderWidth: 2, borderDash: [6, 3],
+                            label: {
+                                display: true,
+                                content: ['Hari ini', '↓ prediksi'],
+                                position: 'start',
+                                color: '#0D3B66',
+                                font: { family: 'Inter', size: 10, weight: '700' },
+                                backgroundColor: 'rgba(255,255,255,0.9)',
+                                padding: { x: 6, y: 4 }, borderRadius: 6,
+                            }
+                        },
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    min: Math.min(minVal, ...prediksi.map(d => d.lower)) * 0.975,
+                    max: Math.max(maxVal, ...prediksi.map(d => d.upper)) * 1.025,
+                    grid: { color: 'rgba(0,0,0,0.04)', borderDash: [5, 5] },
+                    ticks: {
+                        font: { family: 'Inter' },
+                        callback: v => `Rp ${(v / 1000).toFixed(1)}rb`
+                    }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'Inter', size: 10 }, maxRotation: 0, maxTicksLimit: 12 }
+                }
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Mengambil data JSON dari Python Scraper
@@ -129,13 +420,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 usePointStyle: true,
                                 pointStyle: 'circle',
                                 padding: 20,
-                                font: { family: 'Outfit', size: 13, weight: '600' }
+                                font: { family: 'Inter', size: 13, weight: '600' }
                             }
                         },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -147,9 +438,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 callback: function(value) {
                                     return 'Rp ' + (value / 1000).toFixed(0) + 'rb';
                                 }
@@ -157,7 +448,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Outfit', size: 11 }, maxRotation: 0 }
+                            ticks: { font: { family: 'Inter', size: 11 }, maxRotation: 0 }
                         }
                     }
                 }
@@ -190,9 +481,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -204,9 +495,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 stepSize: 1,
                                 callback: function(value) {
                                     return value + ' porsi';
@@ -215,7 +506,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Outfit', size: 11 }, maxRotation: 0 }
+                            ticks: { font: { family: 'Inter', size: 11 }, maxRotation: 0 }
                         }
                     }
                 }
@@ -269,9 +560,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -284,9 +575,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 stepSize: 1,
                                 callback: function(value) {
                                     return value + ' bks';
@@ -296,10 +587,178 @@ document.addEventListener('DOMContentLoaded', async () => {
                         x: {
                             grid: { display: false },
                             ticks: { 
-                                font: { family: 'Outfit', size: 10 }, 
+                                font: { family: 'Inter', size: 10 }, 
                                 maxRotation: 0,
                                 maxTicksLimit: 15
                             }
+                        }
+                    }
+                }
+            });
+        }
+
+        // === STORYTELLING CHART: Perjalanan Biaya Nasi Telur ===
+        if (data.forecast) {
+            buildNasiTelurStoryChart(data.forecast);
+        }
+
+        // === FORECAST CHART ===
+        const forecastData = data.forecast;
+        if (forecastData && forecastData.biaya_harian && forecastData.prediksi) {
+
+            // Update insight cards
+            document.getElementById('forecast-sekarang').innerText =
+                `Rp ${forecastData.biaya_sekarang.toLocaleString('id-ID')}`;
+            document.getElementById('forecast-7hari').innerText =
+                `Rp ${forecastData.biaya_7hari.toLocaleString('id-ID')}`;
+
+            const selisih   = forecastData.selisih;
+            const persen    = forecastData.persen_perubahan;
+            const selisihEl = document.getElementById('forecast-selisih');
+            const sign      = selisih >= 0 ? '+' : '';
+            selisihEl.innerText = `${sign}Rp ${Math.abs(selisih).toLocaleString('id-ID')} (${sign}${persen}%)`;
+            selisihEl.style.color = selisih > 0 ? '#E63946' : '#2E7D32';
+
+            // Update Coffee Insight secara dinamis berdasarkan forecast
+            const selisihBulanan = Math.abs(selisih) * 30;
+            const hargoKopi      = 25000;
+            const gelasKopi      = (selisihBulanan / hargoKopi).toFixed(1);
+            const arahKopi       = selisih > 0 ? 'naik' : 'turun';
+            const coffeeEl       = document.querySelector('.story-text p');
+            if (coffeeEl) {
+                coffeeEl.innerHTML = `Dengan tren harga saat ini, biaya makan bulananmu diprediksi
+                    <strong>${arahKopi}</strong> setara
+                    <strong>${gelasKopi} Gelas Kopi Susu</strong> Kekinian.
+                    ${selisih > 0
+                        ? 'Pertimbangkan untuk mulai mengurangi pengeluaran non-esensial.'
+                        : 'Kabar baik — daya belimu membaik minggu ini!'}`;
+            }
+
+            // Siapkan data chart: historis + prediksi
+            const histLen    = forecastData.biaya_harian.length;
+            const predLen    = forecastData.prediksi.length;
+
+            const histLabels = forecastData.biaya_harian.map(d => {
+                const dt = new Date(d.tanggal);
+                return dt.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+            });
+            const predLabels = forecastData.prediksi.map(d => {
+                const dt = new Date(d.tanggal);
+                return dt.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+            });
+            const allLabels = [...histLabels, ...predLabels];
+
+            const histValues  = forecastData.biaya_harian.map(d => d.biaya);
+            const lastHistVal = histValues[histValues.length - 1];
+
+            // Garis historis: nilai nyata, null untuk zona prediksi
+            const lineHistoris = [...histValues, ...Array(predLen).fill(null)];
+
+            // Garis prediksi: null untuk zona historis (kecuali titik sambung terakhir), lalu nilai prediksi
+            const linePrediksi = [
+                ...Array(histLen - 1).fill(null),
+                lastHistVal,
+                ...forecastData.prediksi.map(d => d.biaya)
+            ];
+
+            // Batas atas: null di zona historis, nilai upper di zona prediksi
+            const lineUpper = [...Array(histLen).fill(null), ...forecastData.prediksi.map(d => d.upper)];
+            const lineLower = [...Array(histLen).fill(null), ...forecastData.prediksi.map(d => d.lower)];
+
+            const ctx4 = document.getElementById('forecastChart').getContext('2d');
+            new Chart(ctx4, {
+                type: 'line',
+                data: {
+                    labels: allLabels,
+                    datasets: [
+                        {
+                            label: 'Biaya Historis',
+                            data: lineHistoris,
+                            borderColor: '#08787F',
+                            backgroundColor: 'rgba(8, 120, 127, 0.08)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Prediksi',
+                            data: linePrediksi,
+                            borderColor: '#E63946',
+                            borderWidth: 3,
+                            borderDash: [7, 4],
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 4,
+                            pointHoverRadius: 7,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Batas Atas',
+                            data: lineUpper,
+                            borderColor: 'rgba(230, 57, 70, 0.35)',
+                            borderWidth: 1,
+                            borderDash: [3, 3],
+                            backgroundColor: 'rgba(230, 57, 70, 0.08)',
+                            fill: '+1',
+                            tension: 0.3,
+                            pointRadius: 0,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Batas Bawah',
+                            data: lineLower,
+                            borderColor: 'rgba(230, 57, 70, 0.35)',
+                            borderWidth: 1,
+                            borderDash: [3, 3],
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 0,
+                            spanGaps: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                filter: item => !['Batas Atas', 'Batas Bawah'].includes(item.text),
+                                usePointStyle: true,
+                                font: { family: 'Inter', size: 13, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont:  { family: 'Inter', size: 13 },
+                            padding: 14,
+                            cornerRadius: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.parsed.y === null) return null;
+                                    if (['Batas Atas', 'Batas Bawah'].includes(context.dataset.label)) return null;
+                                    return ` ${context.dataset.label}: Rp ${Math.round(context.parsed.y).toLocaleString('id-ID')}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
+                            ticks: {
+                                font: { family: 'Inter' },
+                                callback: value => 'Rp ' + (value / 1000).toFixed(1) + 'rb'
+                            }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Inter', size: 10 }, maxRotation: 0, maxTicksLimit: 15 }
                         }
                     }
                 }

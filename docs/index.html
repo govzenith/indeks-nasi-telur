@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dashboard interaktif yang memvisualisasikan pergerakan daya beli harian berdasarkan harga pangan nasional Indonesia.">
     <title>Indeks Nasi Telur Anak Kos | Dashboard Daya Beli</title>
-    <!-- Outfit Font for Modern Look (Gojek Aesthetic) -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Inter Font for Huly.io Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js Annotation Plugin (untuk zone boxes & label di chart) -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3/dist/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
     <!-- Welcome Popup -->
@@ -91,6 +93,52 @@
             </div>
         </section>
 
+        <!-- STORYTELLING CHART UTAMA: Perjalanan Biaya Nasi Telur -->
+        <section class="dashboard-visuals scroll-reveal">
+            <div class="chart-container story-chart-wrapper">
+
+                <!-- Narrative yang di-generate JavaScript -->
+                <div class="chart-narrative" id="nasiTelur-narrative">Memuat cerita data...</div>
+
+                <div class="chart-header">
+                    <h3>🍽️ Perjalanan Biaya 1 Porsi Nasi Telur</h3>
+                    <p class="chart-subtitle">Setiap titik = 1 hari. Warna garis menunjukkan zona daya beli — hover untuk detail.</p>
+                </div>
+
+                <!-- Legend zona -->
+                <div class="zone-legend">
+                    <span class="zone-item zone-green">● 7+ Porsi <span class="zone-tag">Zona Hemat</span></span>
+                    <span class="zone-item zone-orange">● 6 Porsi <span class="zone-tag">Zona Normal</span></span>
+                    <span class="zone-item zone-red">● ≤5 Porsi <span class="zone-tag">Zona Mahal</span></span>
+                    <span class="zone-item zone-dashed">⌇ Prediksi 7 Hari</span>
+                </div>
+
+                <div style="position: relative; height: 420px; width: 100%;">
+                    <canvas id="nasiTelurStoryChart"></canvas>
+                </div>
+
+                <!-- Stats row di bawah chart -->
+                <div class="story-stats-row" id="story-stats-row">
+                    <div class="story-stat">
+                        <span class="stat-label">Hari Terhemat</span>
+                        <span class="stat-value green" id="stat-min">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Hari Termahal</span>
+                        <span class="stat-value red" id="stat-max">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Rata-rata 23 Hari</span>
+                        <span class="stat-value" id="stat-avg">...</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="stat-label">Perubahan Total</span>
+                        <span class="stat-value" id="stat-delta">...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- VISUALIZATION: Grafik Pergerakan Harga -->
         <section class="dashboard-visuals scroll-reveal">
             <div class="chart-container">
@@ -144,6 +192,37 @@
                 </div>
                 <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 1rem; font-style: italic;">
                     *Catatan: Grafik ini merupakan simulasi probabilitas behavioral (Mock Data) yang memodelkan tren konsumsi mahasiswa di akhir bulan.
+                </p>
+            </div>
+        </section>
+
+        <!-- FORECAST: Prediksi 7 Hari ke Depan -->
+        <section class="dashboard-visuals scroll-reveal">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="indomie-badge" style="background: linear-gradient(135deg, #E63946, #c1121f);">🔮 PREDIKSI</div>
+                    <h3>Prediksi Biaya Makan 7 Hari ke Depan</h3>
+                    <p class="chart-subtitle">Berdasarkan model <strong>Linear Trend + Moving Average</strong> dari data PIHPS Bank Indonesia</p>
+                </div>
+                <div class="indomie-insight-row">
+                    <div class="indomie-insight">
+                        <span class="insight-label">Biaya Hari Ini</span>
+                        <span class="insight-value" id="forecast-sekarang">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Prediksi 7 Hari Lagi</span>
+                        <span class="insight-value accent" id="forecast-7hari">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Perubahan Prediksi</span>
+                        <span class="insight-value" id="forecast-selisih">...</span>
+                    </div>
+                </div>
+                <div style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+                <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 1rem; font-style: italic;">
+                    *Model: MA7 + OLS Linear Trend | Asumsi: tren linier jangka pendek, tidak ada supply shock mendadak | Interval kepercayaan: ±1 std residual
                 </p>
             </div>
         </section>

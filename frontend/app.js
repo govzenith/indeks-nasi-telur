@@ -160,9 +160,9 @@ function buildNasiTelurStoryChart(forecastData) {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: '#0D3B66',
-                    titleFont: { family: 'Outfit', size: 13, weight: '800' },
-                    bodyFont:  { family: 'Outfit', size: 12 },
+                    backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                    titleFont: { family: 'Inter', size: 13, weight: '800' },
+                    bodyFont:  { family: 'Inter', size: 12 },
                     padding: 14,
                     cornerRadius: 12,
                     callbacks: {
@@ -223,7 +223,7 @@ function buildNasiTelurStoryChart(forecastData) {
                                 content: `Rata-rata Rp ${avgVal.toLocaleString('id-ID')}`,
                                 position: 'start',
                                 color: '#888',
-                                font: { family: 'Outfit', size: 10 },
+                                font: { family: 'Inter', size: 10 },
                                 backgroundColor: 'rgba(255,255,255,0.85)',
                                 padding: { x: 6, y: 3 }, borderRadius: 4,
                             }
@@ -234,7 +234,7 @@ function buildNasiTelurStoryChart(forecastData) {
                             xValue: minIdx, yValue: minVal,
                             content: [`Terhemat`, `Rp ${minVal.toLocaleString('id-ID')}`],
                             color: '#27ae60',
-                            font: { family: 'Outfit', size: 10, weight: '700' },
+                            font: { family: 'Inter', size: 10, weight: '700' },
                             backgroundColor: 'rgba(255,255,255,0.9)',
                             padding: { x: 6, y: 4 }, borderRadius: 6,
                             yAdjust: 28,
@@ -245,7 +245,7 @@ function buildNasiTelurStoryChart(forecastData) {
                             xValue: maxIdx, yValue: maxVal,
                             content: [`Termahal`, `Rp ${maxVal.toLocaleString('id-ID')}`],
                             color: '#e63946',
-                            font: { family: 'Outfit', size: 10, weight: '700' },
+                            font: { family: 'Inter', size: 10, weight: '700' },
                             backgroundColor: 'rgba(255,255,255,0.9)',
                             padding: { x: 6, y: 4 }, borderRadius: 6,
                             yAdjust: -28,
@@ -262,7 +262,7 @@ function buildNasiTelurStoryChart(forecastData) {
                                 content: ['Hari ini', '↓ prediksi'],
                                 position: 'start',
                                 color: '#0D3B66',
-                                font: { family: 'Outfit', size: 10, weight: '700' },
+                                font: { family: 'Inter', size: 10, weight: '700' },
                                 backgroundColor: 'rgba(255,255,255,0.9)',
                                 padding: { x: 6, y: 4 }, borderRadius: 6,
                             }
@@ -276,13 +276,13 @@ function buildNasiTelurStoryChart(forecastData) {
                     max: Math.max(maxVal, ...prediksi.map(d => d.upper)) * 1.025,
                     grid: { color: 'rgba(0,0,0,0.04)', borderDash: [5, 5] },
                     ticks: {
-                        font: { family: 'Outfit' },
+                        font: { family: 'Inter' },
                         callback: v => `Rp ${(v / 1000).toFixed(1)}rb`
                     }
                 },
                 x: {
                     grid: { display: false },
-                    ticks: { font: { family: 'Outfit', size: 10 }, maxRotation: 0, maxTicksLimit: 12 }
+                    ticks: { font: { family: 'Inter', size: 10 }, maxRotation: 0, maxTicksLimit: 12 }
                 }
             }
         }
@@ -420,13 +420,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 usePointStyle: true,
                                 pointStyle: 'circle',
                                 padding: 20,
-                                font: { family: 'Outfit', size: 13, weight: '600' }
+                                font: { family: 'Inter', size: 13, weight: '600' }
                             }
                         },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -438,9 +438,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 callback: function(value) {
                                     return 'Rp ' + (value / 1000).toFixed(0) + 'rb';
                                 }
@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Outfit', size: 11 }, maxRotation: 0 }
+                            ticks: { font: { family: 'Inter', size: 11 }, maxRotation: 0 }
                         }
                     }
                 }
@@ -481,9 +481,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -495,9 +495,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 stepSize: 1,
                                 callback: function(value) {
                                     return value + ' porsi';
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Outfit', size: 11 }, maxRotation: 0 }
+                            ticks: { font: { family: 'Inter', size: 11 }, maxRotation: 0 }
                         }
                     }
                 }
@@ -560,9 +560,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont: { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont: { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -575,9 +575,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 stepSize: 1,
                                 callback: function(value) {
                                     return value + ' bks';
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         x: {
                             grid: { display: false },
                             ticks: { 
-                                font: { family: 'Outfit', size: 10 }, 
+                                font: { family: 'Inter', size: 10 }, 
                                 maxRotation: 0,
                                 maxTicksLimit: 15
                             }
@@ -730,13 +730,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                             labels: {
                                 filter: item => !['Batas Atas', 'Batas Bawah'].includes(item.text),
                                 usePointStyle: true,
-                                font: { family: 'Outfit', size: 13, weight: '600' }
+                                font: { family: 'Inter', size: 13, weight: '600' }
                             }
                         },
                         tooltip: {
-                            backgroundColor: '#0D3B66',
-                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
-                            bodyFont:  { family: 'Outfit', size: 13 },
+                            backgroundColor: 'rgba(15, 15, 15, 0.95)',
+                            titleFont: { family: 'Inter', size: 14, weight: '800' },
+                            bodyFont:  { family: 'Inter', size: 13 },
                             padding: 14,
                             cornerRadius: 12,
                             callbacks: {
@@ -750,15 +750,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                     },
                     scales: {
                         y: {
-                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            grid: { color: 'rgba(255,255,255,0.05)', borderDash: [5, 5] },
                             ticks: {
-                                font: { family: 'Outfit' },
+                                font: { family: 'Inter' },
                                 callback: value => 'Rp ' + (value / 1000).toFixed(1) + 'rb'
                             }
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Outfit', size: 10 }, maxRotation: 0, maxTicksLimit: 15 }
+                            ticks: { font: { family: 'Inter', size: 10 }, maxRotation: 0, maxTicksLimit: 15 }
                         }
                     }
                 }

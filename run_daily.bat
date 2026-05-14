@@ -13,10 +13,16 @@ echo ==========================================
 call "%PROJDIR%\venv\Scripts\activate.bat"
 
 REM Hari biasa: cukup tarik 3 hari ke belakang (kasih buffer untuk data yang telat masuk PIHPS)
-REM scraper.py juga otomatis mengekspor frontend/data.json setelah selesai
+REM scraper.py ekspor base data.json, forecaster.py menambahkan prediksi 7 hari
 python scraper.py 3
 if errorlevel 1 (
     echo [ERROR] scraper.py gagal.
+    exit /b 1
+)
+
+python forecaster.py
+if errorlevel 1 (
+    echo [ERROR] forecaster.py gagal.
     exit /b 1
 )
 

@@ -148,6 +148,37 @@
             </div>
         </section>
 
+        <!-- FORECAST: Prediksi 7 Hari ke Depan -->
+        <section class="dashboard-visuals scroll-reveal">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="indomie-badge" style="background: linear-gradient(135deg, #E63946, #c1121f);">🔮 PREDIKSI</div>
+                    <h3>Prediksi Biaya Makan 7 Hari ke Depan</h3>
+                    <p class="chart-subtitle">Berdasarkan model <strong>Linear Trend + Moving Average</strong> dari data PIHPS Bank Indonesia</p>
+                </div>
+                <div class="indomie-insight-row">
+                    <div class="indomie-insight">
+                        <span class="insight-label">Biaya Hari Ini</span>
+                        <span class="insight-value" id="forecast-sekarang">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Prediksi 7 Hari Lagi</span>
+                        <span class="insight-value accent" id="forecast-7hari">...</span>
+                    </div>
+                    <div class="indomie-insight">
+                        <span class="insight-label">Perubahan Prediksi</span>
+                        <span class="insight-value" id="forecast-selisih">...</span>
+                    </div>
+                </div>
+                <div style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+                <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 1rem; font-style: italic;">
+                    *Model: MA7 + OLS Linear Trend | Asumsi: tren linier jangka pendek, tidak ada supply shock mendadak | Interval kepercayaan: ±1 std residual
+                </p>
+            </div>
+        </section>
+
         <section class="raw-data-section">
             <h2>Harga Bahan di Mini Market</h2>
             <div class="data-cards" id="raw-data-container">

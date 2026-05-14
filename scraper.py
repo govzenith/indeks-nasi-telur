@@ -21,6 +21,7 @@ KOMODITAS = {
     "Beras":         "com_3",   # Beras Kualitas Medium I
     "Telur Ayam":    "com_10",  # Telur Ayam Ras Segar
     "Minyak Goreng": "com_17",  # Minyak Goreng Curah
+    "Cabai Merah":   "com_14",  # Cabai Merah Keriting
 }
 
 # 3 provinsi referensi yang terverifikasi aktif di PIHPS

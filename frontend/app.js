@@ -306,6 +306,169 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
+        // === FORECAST CHART ===
+        const forecastData = data.forecast;
+        if (forecastData && forecastData.biaya_harian && forecastData.prediksi) {
+
+            // Update insight cards
+            document.getElementById('forecast-sekarang').innerText =
+                `Rp ${forecastData.biaya_sekarang.toLocaleString('id-ID')}`;
+            document.getElementById('forecast-7hari').innerText =
+                `Rp ${forecastData.biaya_7hari.toLocaleString('id-ID')}`;
+
+            const selisih   = forecastData.selisih;
+            const persen    = forecastData.persen_perubahan;
+            const selisihEl = document.getElementById('forecast-selisih');
+            const sign      = selisih >= 0 ? '+' : '';
+            selisihEl.innerText = `${sign}Rp ${Math.abs(selisih).toLocaleString('id-ID')} (${sign}${persen}%)`;
+            selisihEl.style.color = selisih > 0 ? '#E63946' : '#2E7D32';
+
+            // Update Coffee Insight secara dinamis berdasarkan forecast
+            const selisihBulanan = Math.abs(selisih) * 30;
+            const hargoKopi      = 25000;
+            const gelasKopi      = (selisihBulanan / hargoKopi).toFixed(1);
+            const arahKopi       = selisih > 0 ? 'naik' : 'turun';
+            const coffeeEl       = document.querySelector('.story-text p');
+            if (coffeeEl) {
+                coffeeEl.innerHTML = `Dengan tren harga saat ini, biaya makan bulananmu diprediksi
+                    <strong>${arahKopi}</strong> setara
+                    <strong>${gelasKopi} Gelas Kopi Susu</strong> Kekinian.
+                    ${selisih > 0
+                        ? 'Pertimbangkan untuk mulai mengurangi pengeluaran non-esensial.'
+                        : 'Kabar baik — daya belimu membaik minggu ini!'}`;
+            }
+
+            // Siapkan data chart: historis + prediksi
+            const histLen    = forecastData.biaya_harian.length;
+            const predLen    = forecastData.prediksi.length;
+
+            const histLabels = forecastData.biaya_harian.map(d => {
+                const dt = new Date(d.tanggal);
+                return dt.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+            });
+            const predLabels = forecastData.prediksi.map(d => {
+                const dt = new Date(d.tanggal);
+                return dt.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+            });
+            const allLabels = [...histLabels, ...predLabels];
+
+            const histValues  = forecastData.biaya_harian.map(d => d.biaya);
+            const lastHistVal = histValues[histValues.length - 1];
+
+            // Garis historis: nilai nyata, null untuk zona prediksi
+            const lineHistoris = [...histValues, ...Array(predLen).fill(null)];
+
+            // Garis prediksi: null untuk zona historis (kecuali titik sambung terakhir), lalu nilai prediksi
+            const linePrediksi = [
+                ...Array(histLen - 1).fill(null),
+                lastHistVal,
+                ...forecastData.prediksi.map(d => d.biaya)
+            ];
+
+            // Batas atas: null di zona historis, nilai upper di zona prediksi
+            const lineUpper = [...Array(histLen).fill(null), ...forecastData.prediksi.map(d => d.upper)];
+            const lineLower = [...Array(histLen).fill(null), ...forecastData.prediksi.map(d => d.lower)];
+
+            const ctx4 = document.getElementById('forecastChart').getContext('2d');
+            new Chart(ctx4, {
+                type: 'line',
+                data: {
+                    labels: allLabels,
+                    datasets: [
+                        {
+                            label: 'Biaya Historis',
+                            data: lineHistoris,
+                            borderColor: '#08787F',
+                            backgroundColor: 'rgba(8, 120, 127, 0.08)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointHoverRadius: 6,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Prediksi',
+                            data: linePrediksi,
+                            borderColor: '#E63946',
+                            borderWidth: 3,
+                            borderDash: [7, 4],
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 4,
+                            pointHoverRadius: 7,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Batas Atas',
+                            data: lineUpper,
+                            borderColor: 'rgba(230, 57, 70, 0.35)',
+                            borderWidth: 1,
+                            borderDash: [3, 3],
+                            backgroundColor: 'rgba(230, 57, 70, 0.08)',
+                            fill: '+1',
+                            tension: 0.3,
+                            pointRadius: 0,
+                            spanGaps: false,
+                        },
+                        {
+                            label: 'Batas Bawah',
+                            data: lineLower,
+                            borderColor: 'rgba(230, 57, 70, 0.35)',
+                            borderWidth: 1,
+                            borderDash: [3, 3],
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 0,
+                            spanGaps: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                filter: item => !['Batas Atas', 'Batas Bawah'].includes(item.text),
+                                usePointStyle: true,
+                                font: { family: 'Outfit', size: 13, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#0D3B66',
+                            titleFont: { family: 'Outfit', size: 14, weight: '800' },
+                            bodyFont:  { family: 'Outfit', size: 13 },
+                            padding: 14,
+                            cornerRadius: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.parsed.y === null) return null;
+                                    if (['Batas Atas', 'Batas Bawah'].includes(context.dataset.label)) return null;
+                                    return ` ${context.dataset.label}: Rp ${Math.round(context.parsed.y).toLocaleString('id-ID')}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5, 5] },
+                            ticks: {
+                                font: { family: 'Outfit' },
+                                callback: value => 'Rp ' + (value / 1000).toFixed(1) + 'rb'
+                            }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Outfit', size: 10 }, maxRotation: 0, maxTicksLimit: 15 }
+                        }
+                    }
+                }
+            });
+        }
+
     } catch (error) {
         console.error("Gagal mengambil data:", error);
         document.getElementById('biaya-porsi').innerText = "Error";

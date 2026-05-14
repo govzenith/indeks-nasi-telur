@@ -358,4 +358,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // --- PARALLAX SCROLL EFFECT ---
+    const parallaxShapes = document.querySelectorAll('.parallax-shape');
+    const heroContent = document.querySelector('.hero-content');
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // Parallax pada floating shapes
+        parallaxShapes.forEach(shape => {
+            const speed = parseFloat(shape.dataset.speed) || 0.03;
+            shape.style.transform = `translateY(${scrollY * speed * 10}px)`;
+        });
+
+        // Parallax pada hero content (bergerak ke atas lebih cepat)
+        if (heroContent) {
+            const speed = parseFloat(heroContent.dataset.speed) || 0.08;
+            heroContent.style.transform = `translateY(${scrollY * speed * 5}px)`;
+        }
+    }, { passive: true });
+
+    // --- SCROLL REVEAL (Intersection Observer) ---
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Stagger delay berdasarkan urutan
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, index * 100);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
 });

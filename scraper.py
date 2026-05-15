@@ -87,27 +87,33 @@ def parse_grid_to_daily(rows):
 
 
 def fetch_national_average(comcat_id, start_date, end_date):
-    """Rata-rata harga harian dari PROVINCES sebagai representasi nasional."""
-    totals = {}
-    counts = {}
+    """
+    Median harga harian dari PROVINCES (bukan mean) untuk tahan terhadap
+    outlier data PIHPS per provinsi. Butuh minimal 2 provinsi agar valid.
+    """
+    per_tanggal = {}  # {tanggal: [harga_prov1, harga_prov2, ...]}
 
     for prov_name, prov_id in PROVINCES.items():
         try:
             rows  = fetch_grid(comcat_id, prov_id, start_date, end_date)
             daily = parse_grid_to_daily(rows)
             for tanggal, harga in daily.items():
-                totals[tanggal] = totals.get(tanggal, 0) + harga
-                counts[tanggal] = counts.get(tanggal, 0) + 1
+                per_tanggal.setdefault(tanggal, []).append(harga)
             print(f"    {prov_name}: {len(daily)} hari")
-            time.sleep(0.6)  # rate limiting sopan ke server BI
+            time.sleep(0.6)
         except Exception as e:
             print(f"    SKIP {prov_name}: {e}")
 
     result = {}
-    for tanggal, total in totals.items():
-        n = counts.get(tanggal, 0)
-        if n > 0:
-            result[tanggal] = round(total / n, -2)  # bulatkan ke ratusan
+    for tanggal, harga_list in per_tanggal.items():
+        if len(harga_list) < 2:
+            # Hanya 1 provinsi lapor — terlalu berisiko ada outlier, lewati
+            print(f"    SKIP {tanggal}: hanya {len(harga_list)} provinsi (butuh min. 2)")
+            continue
+        sorted_h = sorted(harga_list)
+        n = len(sorted_h)
+        median = sorted_h[n // 2] if n % 2 == 1 else (sorted_h[n // 2 - 1] + sorted_h[n // 2]) / 2
+        result[tanggal] = round(median, -2)
     return result
 
 
@@ -158,50 +164,92 @@ def generate_indomie_tracker():
 
 
 def export_to_json():
-    """Ekspor data dari SQLite ke frontend/data.json (format yang dibaca app.js)."""
+    """
+    Ekspor data dari SQLite ke frontend/data.json.
+    Bersifat ADDITIVE: baca data.json lama terlebih dahulu, merge dengan data
+    baru dari DB, sehingga historical data tidak hilang di GitHub Actions.
+    data.json adalah satu-satunya persistent store di server (GitHub).
+    """
     conn = sqlite3.connect('database.db')
 
-    # Harga terbaru per komoditas
+    # Harga terbaru per komoditas dari DB lokal
     rows = conn.execute("""
         SELECT h.komoditas, h.harga, h.tanggal
         FROM harga_harian h
         INNER JOIN (
             SELECT komoditas, MAX(tanggal) AS max_tanggal
-            FROM harga_harian
-            GROUP BY komoditas
+            FROM harga_harian GROUP BY komoditas
         ) latest ON h.komoditas = latest.komoditas AND h.tanggal = latest.max_tanggal
     """).fetchall()
     latest_dict = {r[0]: {"harga": r[1], "tanggal": r[2]} for r in rows}
 
-    # Historis 30 hari terakhir
-    rows = conn.execute("""
-        SELECT tanggal, komoditas, harga FROM harga_harian
-        WHERE tanggal >= date('now', '-30 days')
-        ORDER BY tanggal ASC
-    """).fetchall()
-    history_dict = {}
-    for tanggal, komoditas, harga in rows:
-        if komoditas not in history_dict:
-            history_dict[komoditas] = {"tanggal": [], "harga": []}
-        history_dict[komoditas]["tanggal"].append(tanggal)
-        history_dict[komoditas]["harga"].append(harga)
-
+    # Semua data historis dari DB lokal
+    rows = conn.execute(
+        "SELECT tanggal, komoditas, harga FROM harga_harian ORDER BY tanggal ASC"
+    ).fetchall()
     conn.close()
+
+    # Bangun map baru dari DB: {komoditas: {tanggal: harga}}
+    db_map = {}
+    for tanggal, komoditas, harga in rows:
+        db_map.setdefault(komoditas, {})[tanggal] = harga
+
+    # Baca data.json lama (persistent store di GitHub) jika ada
+    json_path = 'frontend/data.json'
+    existing = {}
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, encoding='utf-8') as f:
+                existing = json.load(f)
+        except Exception:
+            existing = {}
+
+    # Merge: gabungkan historis lama + baru, DB menang jika ada konflik tanggal
+    merged_map = {}
+    old_historis = existing.get("historis", {})
+    all_komoditas = set(db_map.keys()) | set(old_historis.keys())
+    for k in all_komoditas:
+        merged = {}
+        # Isi dari data lama dulu
+        old = old_historis.get(k, {})
+        if isinstance(old, dict) and "tanggal" in old:
+            for t, h in zip(old["tanggal"], old["harga"]):
+                merged[t] = h
+        # Timpa/tambah dengan data dari DB (DB lebih fresh, punya override priority)
+        for t, h in db_map.get(k, {}).items():
+            merged[t] = h
+        merged_map[k] = merged
+
+    # Konversi kembali ke format array terurut
+    history_dict = {}
+    for k, tgl_harga in merged_map.items():
+        sorted_tgl = sorted(tgl_harga.keys())
+        history_dict[k] = {
+            "tanggal": sorted_tgl,
+            "harga":   [tgl_harga[t] for t in sorted_tgl]
+        }
+
+    # Update latest_dict: jika DB tidak punya komoditas tertentu, pakai dari JSON lama
+    for k, v in existing.get("terbaru", {}).items():
+        if k not in latest_dict:
+            latest_dict[k] = v
 
     output = {
         "terbaru":         latest_dict,
         "historis":        history_dict,
         "indomie_tracker": generate_indomie_tracker(),
+        # "forecast" akan diisi oleh forecaster.py, jaga nilai lama jika ada
+        **({"forecast": existing["forecast"]} if "forecast" in existing else {}),
     }
 
     os.makedirs('frontend', exist_ok=True)
-    with open('frontend/data.json', 'w', encoding='utf-8') as f:
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False)
 
     print("\nEkspor selesai -> frontend/data.json")
     print(f"  Komoditas terbaru : {list(latest_dict.keys())}")
     for k, v in history_dict.items():
-        print(f"  {k:15s}: {len(v['tanggal'])} hari historis")
+        print(f"  {k:15s}: {len(v['tanggal'])} hari historis (total akumulatif)")
 
 
 def main(days_back=30):

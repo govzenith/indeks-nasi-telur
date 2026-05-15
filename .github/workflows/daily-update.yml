@@ -23,8 +23,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run scraper (3 days)
-        run: python scraper.py 3
+      - name: Run scraper (7 days back — buffer untuk data PIHPS yang telat masuk)
+        run: python scraper.py 7
+
+      - name: Run forecaster (MA7 + OLS Linear Trend)
+        run: python forecaster.py
 
       - name: Commit updated data
         run: |
